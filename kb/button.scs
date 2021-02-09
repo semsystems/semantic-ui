@@ -75,6 +75,7 @@ concept_border_none -> button_1;;
 concept_border -> concept_border_none;;
 ..node0 -> button_1;;
 ..node0 => nrel_16bit_color:@link3;;
+..node0 => nrel_json_idtf:@link3;;
 nrel_pt=>nrel_json_idtf:  [pt];;
 concept_color -> ..node0;;
 concept_border_radius -> ..node2;;

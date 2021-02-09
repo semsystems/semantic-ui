@@ -35,41 +35,6 @@ namespace uiModule {
 
     }
 
-    void JsonAgent::searchProperty(const ScTemplateItemValue &concrete_component) {
-        ScTemplate templ;
-        ScTemplateSearchResult searchResult;
-        templ.Triple(
-                ScType::NodeVarClass >> "_property",
-                ScType::EdgeAccessVarPosPerm,
-                concrete_component);
-        templ.Triple(
-                ScType::NodeVarClass >> "_property_class",
-                ScType::EdgeAccessVarPosPerm,
-                "_property");
-
-        templ.TripleWithRelation(
-                "_property",
-                ScType::EdgeDCommonVar,
-                ScType::LinkVar >> "_value",
-                ScType::EdgeAccessVarPosPerm,
-                ScType::NodeVarNoRole >> "_nrel");
-
-        templ.TripleWithRelation(
-                "_property_class",
-                ScType::EdgeDCommonVar,
-                ScType::LinkVar >> "_property_class_name",
-                ScType::EdgeAccessVarPosPerm,
-                Keynodes::keynode_nrel_json_idtf);
-        ms_context->HelperSearchTemplate(templ, searchResult);
-        for (size_t i = 0; i < searchResult.Size(); i++) {
-
-            ss << "\"" << CommonUtils::readString(ms_context.get(), searchResult[i]["_property_class_name"])
-               << "\":\"" <<
-               CommonUtils::readString(ms_context.get(), searchResult[i]["_value"]) << "\",";
-
-        }
-    }
-
     void JsonAgent::searchPropertyValue(const ScTemplateItemValue &concrete_component) {
 
         ScTemplate templ;
@@ -143,7 +108,7 @@ namespace uiModule {
                 ScType::NodeVarClass >> "_property",
                 ScType::EdgeAccessVarPosPerm,
                 param
-                );
+        );
         templ.Triple(
                 ScType::NodeVarClass >> "_property_class",
                 ScType::EdgeAccessVarPosPerm,
@@ -169,7 +134,7 @@ namespace uiModule {
 
         ss << "{" << "\"component\":\""
            << CommonUtils::readString(ms_context.get(), searchResult[0]["_name_component"]) << "\",\"text\":\""
-                << ms_context->HelperGetSystemIdtf(param) << "\",";
+           << ms_context->HelperGetSystemIdtf(param) << "\",";
         for (size_t i = 0; i < searchResult.Size(); i++) {
             ss << "\"" << CommonUtils::readString(ms_context.get(), searchResult[i]["_property_class_name"])
                << "\":\"" <<
@@ -177,7 +142,6 @@ namespace uiModule {
         }
 
         searchPropertyValue(param);
-
         ss << "}";
         String s;
         s = ss.str();
