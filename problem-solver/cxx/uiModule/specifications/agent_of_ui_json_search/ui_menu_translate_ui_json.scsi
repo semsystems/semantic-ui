@@ -1,0 +1,29 @@
+ui_menu_translate_ui_json<- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_one_argument_command_class;;
+
+ui_menu_translate_ui_json
+=> nrel_main_idtf: 
+	[Какой json имеет указанная сущность?]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Запрос поиска json указанной сущности]
+	(* <- lang_ru;; *);;
+
+ui_menu_translate_ui_json
+=> nrel_main_idtf: 
+	[What is json of the specified entity?]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Request searches for ui-json of the specified entity]
+	(* <- lang_en;; *);;
+
+ui_menu_translate_ui_json => ui_nrel_command_template:
+	[*
+		action_translate_to_ui_json _-> ._action_translate_to_ui_json
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._action_translate_to_ui_json_instance _<- question;;
+	*];;
+
+ui_menu_translate_ui_json => ui_nrel_command_lang_template: [Какой ui-json имеет $ui_arg_1] (* <- lang_ru;; *);;
+ui_menu_translate_ui_json => ui_nrel_command_lang_template: [What is ui-json of $ui_arg_1] (* <- lang_en;; *);;

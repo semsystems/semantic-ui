@@ -22,8 +22,8 @@ namespace uiModule {
         SC_PROPERTY(Keynode("nrel_json_idtf"), ForceCreate)
         static ScAddr keynode_nrel_json_idtf;
 
-        SC_PROPERTY(Keynode("mInputConstructionAddr"), ForceCreate)
-        static ScAddr mInputConstructionAddr;
+        SC_PROPERTY(Keynode("format_ui_json"), ForceCreate)
+        static ScAddr format_ui_json;
 
         SC_PROPERTY(Keynode("concept_button"), ForceCreate)
         static ScAddr concept_button;
@@ -37,8 +37,14 @@ namespace uiModule {
         SC_PROPERTY(Keynode("nrel_inclusion"), ForceCreate)
         static ScAddr nrel_inclusion;
 
-        SC_PROPERTY(Keynode("question_find_ui_json"), ForceCreate)
-        static ScAddr question_find_ui_json;
+        SC_PROPERTY(Keynode("action_translate_to_ui_json"), ForceCreate)
+        static ScAddr action_translate_to_ui_json;
+
+        SC_PROPERTY(Keynode("nrel_sc_text_translation"), ForceCreate)
+        static ScAddr nrel_sc_text_translation;
+
+        SC_PROPERTY(Keynode("question_finished_successfully"), ForceCreate)
+        static ScAddr question_finished_successfully;
     };
 
 } // namespace uiModule

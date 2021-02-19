@@ -8,11 +8,13 @@
 
 namespace uiModule {
 
-    ScAddr Keynodes::question_find_ui_json;
+    ScAddr Keynodes::action_translate_to_ui_json;
+    ScAddr Keynodes::question_finished_successfully;
     ScAddr Keynodes::keynode_nrel_json_idtf;
-    ScAddr Keynodes::mInputConstructionAddr;
+    ScAddr Keynodes::format_ui_json;
     ScAddr Keynodes::concept_button;
     ScAddr Keynodes::concept_component;
     ScAddr Keynodes::concept_component_class;
     ScAddr Keynodes::nrel_inclusion;
+    ScAddr Keynodes::nrel_sc_text_translation;
 }

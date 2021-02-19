@@ -14,13 +14,16 @@
 namespace uiModule
 {
 
-class JsonAgent : public ScAgent
+class JsonTranslateAgent : public ScAgent
 {
-  SC_CLASS(Agent, Event(Keynodes::question_find_ui_json, ScEvent::Type::AddOutputEdge))
+  SC_CLASS(Agent, Event(Keynodes::action_translate_to_ui_json, ScEvent::Type::AddOutputEdge))
   SC_GENERATED_BODY()
-  void getJson(ScAddr const &param);
+  ScAddr getTranslateJson(ScAddr const &param);
   void searchPropertyValue(const ScTemplateItemValue &par);
-  void searchProperty(const ScTemplateItemValue &concrete_component);
+  bool componentIsValid(ScAddr const & jsonLink);
+  ScAddr generateMessage( ScAddr const & jsonLinkAddr,ScAddr const &componentAddr);
+  ScAddr generateAnswer(ScAddr const & messageAddr,ScAddr const &linkAddr);
+
 };
 
 } // namespace uiModule

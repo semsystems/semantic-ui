@@ -6,7 +6,7 @@
 
 #include "uiModule.hpp"
 #include "keynodes/keynodes.hpp"
-#include "agents/JsonAgent.hpp"
+#include "agents/JsonTranslateAgent.hpp"
 
 using namespace uiModule;
 
@@ -17,14 +17,14 @@ sc_result UiModule::InitializeImpl()
   if (!uiModule::Keynodes::InitGlobal())
     return SC_RESULT_ERROR;
 
-  SC_AGENT_REGISTER(JsonAgent)
+  SC_AGENT_REGISTER(JsonTranslateAgent)
 
   return SC_RESULT_OK;
 }
 
 sc_result UiModule::ShutdownImpl()
 {
-  SC_AGENT_UNREGISTER(JsonAgent)
+  SC_AGENT_UNREGISTER(JsonTranslateAgent)
 
   return SC_RESULT_OK;
 }
