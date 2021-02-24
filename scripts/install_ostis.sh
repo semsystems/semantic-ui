@@ -4,6 +4,7 @@ APP_ROOT_PATH=$(cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. &
 PLATFORM_PATH="${APP_ROOT_PATH}/ostis-web-platform"
 WORKING_PATH=$(pwd)
 PYTHON_PATH="${APP_ROOT_PATH}"/problem-solver/py/services
+INTERFACE_PATH="${APP_ROOT_PATH}"/interface
 PLATFORM_REPO="https://github.com/ostis-dev/ostis-web-platform.git"
 
 prepare_platform()
@@ -46,6 +47,18 @@ include_problem_solver()
 	cd "${PLATFORM_PATH}"
 }
 
+include_interface()
+{
+	if ! grep -q "${INTERFACE_PATH}" "${PLATFORM_PATH}/sc-machine/config/config.ini.in";
+	then
+		INTERFACE_PATH_ESCAPED="$(echo "${INTERFACE_PATH}" | sed -e 's/[/]/\\&/g')"
+		sed -i "s/^path.*=.*/path = ${INTERFACE_PATH_ESCAPED}/" "${PLATFORM_PATH}/sc-machine/config/config.ini.in"
+	fi
+	cd "${INTERFACE_PATH}"/client
+	yarn && yarn webpack-dev
+	cd "${PLATFORM_PATH}"
+}
+
 cd "${APP_ROOT_PATH}"
 if [ -d "${PLATFORM_PATH}" ];
 	then
@@ -61,6 +74,7 @@ if [ -d "${PLATFORM_PATH}" ];
 		git checkout 0.6.0
 		"${APP_ROOT_PATH}"/scripts/clone_subsystems.sh
 		prepare_platform_without_build
+		include_interface
 		include_problem_solver
 		include_kb
 fi
