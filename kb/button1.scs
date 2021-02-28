@@ -63,7 +63,7 @@ concept_x <- sc_node_class;;
 @pair9 = (concept_disable -> concept_disable_false);;
 @pair10 = (..node1 -> concept_disable);;
 @pair11 = (..node10 => @link5);;
-//@pair12 = (nrel_16bit_color -> @pair11);;
+@pair12 = (nrel_16bit_color -> @pair11);;
 @pair13 = (nrel_pt => @link13);;
 @pair14 = (concept_color -> ..node10);;
 @pair15 = (..node3 => 16);;

@@ -1,8 +1,8 @@
-lib_component_ui_json
+lib_component_translate_to_ui_json
 => nrel_main_idtf:
-	[Компонент библиотеки. Команда пользовательского интерфейса трансляции ui-json заданной сущности]
+	[Компонент библиотеки. Команда пользовательского интерфейса трансляции компонента интерфейса в ui-json формат]
 	(* <- lang_ru;; *);
-	[Library component. User interfaces command of translate of ui-json of the specified entity]
+	[Library component. User interface command of translate the specified ui component to ui-json format]
 	(* <- lang_en;; *);
 
 <- library_of_platform_independent_reusable_components;
