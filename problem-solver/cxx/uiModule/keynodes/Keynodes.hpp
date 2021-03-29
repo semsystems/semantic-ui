@@ -9,7 +9,7 @@
 #include <sc-memory/sc_object.hpp>
 #include <sc-memory/sc_addr.hpp>
 
-#include "keynodes.generated.hpp"
+#include "Keynodes.generated.hpp"
 
 namespace uiModule
 {

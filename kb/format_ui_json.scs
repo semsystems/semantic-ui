@@ -1,0 +1,6 @@
+format_ui_json<-format;
+=>nrel_main_idtf:
+	[формат ui (json)]
+	(* <- lang_ru;; *);
+	[format ui (json)]
+	(* <- lang_en;; *);;
