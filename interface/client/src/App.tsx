@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import * as store from './store';
 import { AppMain } from './ui/AppMain';
 
-
 interface AppContainerProps {
     store?: store.Store;
 }

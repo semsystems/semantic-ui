@@ -1,4 +1,13 @@
-import { ScAddr, ScLinkContent, ScLinkContentType, ScNet, ScTemplate, ScTemplateResult, ScType } from '@ostis/sc-core';
+import {
+    ScAddr,
+    ScLinkContent,
+    ScLinkContentType,
+    ScNet,
+    ScTemplate,
+    ScTemplateResult,
+    ScTemplateSearchResult,
+    ScType,
+} from '@ostis/sc-core';
 import { ServerKeynodes } from './ServerKeynodes';
 
 type CallbackIdentifierFunction = (addr: ScAddr, idtf: string) => void;
@@ -6,6 +15,8 @@ type CallbackIdentifierFunction = (addr: ScAddr, idtf: string) => void;
 export class ServerBase {
     private readonly _client: ScNet = null;
     private readonly _keynodes: ServerKeynodes = null;
+    private readonly template_search_iterations_count: number = +process.env.TEMPLATE_SEARCH_ITERATIONS_COUNT;
+    private readonly template_search_waiting_ms_interval: number = +process.env.TEMPLATE_SEARCH_WAITING_MS_INTERVAL;
 
     constructor(client: ScNet, keynodes: ServerKeynodes) {
         this._client = client;
@@ -22,6 +33,114 @@ export class ServerBase {
 
     public get host(): string {
         return location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+    }
+
+    public async findFinishedArc(actionNode: ScAddr): Promise<ScTemplateSearchResult> {
+        const template: ScTemplate = new ScTemplate();
+
+        template.Triple(this.keynodes.kQuestionFinished, ScType.EdgeAccessVarPosPerm, actionNode);
+        const resultFinishedArc = await this.client.TemplateSearch(template);
+
+        return new Promise((resolve) => {
+            resolve(resultFinishedArc);
+        });
+    }
+
+    public async findAnswerConstruction(actionNode: ScAddr): Promise<ScTemplateSearchResult> {
+        const template: ScTemplate = new ScTemplate();
+        template.TripleWithRelation(
+            actionNode,
+            ScType.EdgeDCommonVar,
+            [ScType.NodeVarStruct, 'structure'],
+            ScType.EdgeAccessVarPosPerm,
+            this.keynodes.kNrelAnswer,
+        );
+        template.TripleWithRelation(
+            [ScType.NodeVar, 'node'],
+            ScType.EdgeDCommonVar,
+            [ScType.NodeVar, 'componentNode'],
+            ScType.EdgeAccessVarPosPerm,
+            this.keynodes.kNrelScTextTranslation,
+        );
+        template.Triple('structure', ScType.EdgeAccessVarPosPerm, 'componentNode');
+        const resultAnswer: ScTemplateSearchResult = await this.client.TemplateSearch(template);
+
+        const structAddr: ScAddr = resultAnswer[0].Get('structure');
+        const componentAddr: ScAddr = resultAnswer[0].Get('componentNode');
+        const nodeAddr: ScAddr = resultAnswer[0].Get('node');
+        const templ: ScTemplate = new ScTemplate();
+        templ.Triple(structAddr, ScType.EdgeAccessVarPosPerm, [componentAddr, 'component']);
+
+        templ.Triple(this.keynodes.kFormatUiJson, ScType.EdgeAccessVarPosPerm, [ScType.LinkVar, 'ui_json_link']);
+        templ.Triple(nodeAddr, ScType.EdgeAccessVarPosPerm, 'ui_json_link');
+        const result: ScTemplateSearchResult = await this.client.TemplateSearch(templ);
+
+        return new Promise((resolve) => {
+            resolve(result);
+        });
+    }
+
+    public async findAnswerLink(actionNode: ScAddr): Promise<ScAddr> {
+        const template: ScTemplate = new ScTemplate();
+        template.TripleWithRelation(
+            [ScType.NodeVar, 'translation_node'],
+            ScType.EdgeDCommonVar,
+            actionNode,
+            ScType.EdgeAccessVarPosPerm,
+            this.keynodes.kNrelScTextTranslation,
+        );
+        template.Triple('translation_node', ScType.EdgeAccessVarPosPerm, [ScType.LinkVar, 'link']);
+
+        template.Triple(this.keynodes.kFormatUiJson, ScType.EdgeAccessVarPosPerm, 'link');
+
+        const templateResult: ScTemplateSearchResult = await this.client.TemplateSearch(template);
+        const linkAddr: ScAddr = templateResult[0].Get('link');
+
+        return new Promise((resolve) => {
+            resolve(linkAddr);
+        });
+    }
+
+    public async findLinkContent(link: ScAddr): Promise<string> {
+        const linkContent: ScLinkContent[] = await this.client.GetLinkContents([link]);
+        const contentResult: string = linkContent[0].data.toString();
+        return new Promise<string>((resolve) => {
+            resolve(contentResult);
+        });
+    }
+
+    public async waitFinishedArc(actionNode: ScAddr): Promise<void> {
+        let iterator = 0;
+        const timerForFinishedArc = setInterval(async () => {
+            const resultFinishedArc: ScTemplateSearchResult = await this.findFinishedArc(actionNode);
+            iterator++;
+            if (resultFinishedArc.length != 0 || iterator > this.template_search_iterations_count) {
+                clearInterval(timerForFinishedArc);
+            }
+        }, this.template_search_waiting_ms_interval);
+    }
+
+    public async getUiJsonLinkContent(actionNode: ScAddr): Promise<string> {
+        let linkNodeContent = '';
+        let iterator = 0;
+        let resolveFunction;
+        const timerForAnswerConstruction = setInterval(async () => {
+            const answerMessageNodeConstruction: ScTemplateSearchResult = await this.findAnswerConstruction(actionNode);
+            iterator++;
+            if (answerMessageNodeConstruction.length > 0) {
+                clearInterval(timerForAnswerConstruction);
+                const answerNode: ScAddr = answerMessageNodeConstruction[0].Get('component');
+                const linkNode: ScAddr = await this.findAnswerLink(answerNode);
+                linkNodeContent = await this.findLinkContent(linkNode);
+                resolveFunction(linkNodeContent);
+            } else if (iterator > this.template_search_iterations_count) {
+                clearInterval(timerForAnswerConstruction);
+                resolveFunction(linkNodeContent);
+            }
+        }, this.template_search_waiting_ms_interval);
+        return new Promise<string>((resolve) => {
+            resolveFunction = resolve;
+        });
     }
 
     public blobToBase64(blob: Blob): Promise<string> {
