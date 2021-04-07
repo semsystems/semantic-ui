@@ -1,0 +1,27 @@
+concept_disabled
+<- sc_node_not_relation;
+=> nrel_json_idtf: [disabled];
+=> nrel_main_idtf:
+	[disabled]
+	(* <- lang_en;; *);
+	[свойство отключение]
+	(* <- lang_ru;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+		[Свойство отключения - это логическое свойство компонента пользовательского интерфейса, который может быть установлен для запрета использования компонента, пока не будет выполнено 			определенное действие.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+		[The disabled property is a boolean property of user component interface, that can be set to keep a user from using the component until some other condition has been met.]
+		(* <- lang_en;;*);;
+		*);;
+	*);;

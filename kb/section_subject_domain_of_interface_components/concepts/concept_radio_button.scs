@@ -1,0 +1,36 @@
+concept_radio_button
+<- sc_node_not_relation;
+=> nrel_json_idtf: [RadioButton];
+=> nrel_main_idtf:
+	[кнопка-переключатель]
+	(* <- lang_ru;; *);
+	[radio button]
+	(* <- lang_en;; *);
+
+<=nrel_inclusion: concept_button;
+=> nrel_properties_set: ...
+	(*
+	-> concept_id;;
+	-> concept_text;;
+	-> concept_disabled;;
+	-> concept_coordinate_x;;
+	-> concept_coordinate_y;;
+	-> concept_checked;;
+	*);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Кнопка-переключатель — знак команды выбора альтернативы.](* <- lang_ru;;*);;
+		*);
+		...
+		(*
+		-> rrel_example:
+			[The radio button is a sign of the alternative selection command.](* <- lang_en;;*);;
+		*);;
+	*);;

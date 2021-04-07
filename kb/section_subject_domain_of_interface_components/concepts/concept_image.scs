@@ -1,0 +1,35 @@
+concept_image
+<- sc_node_not_relation;
+=> nrel_json_idtf: [Image];
+=> nrel_main_idtf:
+	[картинка-иконка]
+	(* <- lang_ru;; *);
+	[image]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_atomic_component_of_user_interface;
+=> nrel_properties_set: ...
+	(*
+	-> concept_id;;
+	-> concept_src;;
+	-> component_width;;
+	-> concept_height;;
+	-> concept_alt;;
+	*);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Картинка-иконка - графическая несимвольная информационная конструкция.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[An image is a graphical, non-symbolic information structure.](* <- lang_en;;*);;
+		*);;
+	*);;

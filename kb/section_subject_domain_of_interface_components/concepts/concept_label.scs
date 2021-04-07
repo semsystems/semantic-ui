@@ -1,0 +1,37 @@
+concept_label
+<- sc_node_not_relation;
+=> nrel_json_idtf: [Label];
+=> nrel_main_idtf:
+	[метка]
+	(* <- lang_ru;; *);
+	[label]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_atomic_component_of_user_interface;
+=> nrel_properties_set: ...
+	(*
+	-> concept_id;;
+	-> concept_text;;
+	-> concept_color;;
+	-> concept_width;;
+	-> concept_height;;
+	-> concept_coordinate_x;;
+	-> concept_coordinate_y;;
+	*);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Метка — знак scg-рамки, являющейся идентификатором некоторой команды.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[The label is a sign of the scg-frame, which is the identifier of a certain command.](* <- lang_en;;*);;
+		*);;
+	*);;

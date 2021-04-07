@@ -1,0 +1,25 @@
+concept_properties_set
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[множество свойств]
+	(* <- lang_ru;; *);
+	[properties set]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Множество свойств - множество, состоящее из свойств объекта.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Properties set is a set consisting of the properties of an object.](* <- lang_en;;*);;
+		*);;
+	*);;

@@ -1,0 +1,26 @@
+concept_rows
+<- sc_node_not_relation;
+=> nrel_json_idtf: [rows];
+=> nrel_main_idtf:
+	[rows]
+	(* <- lang_en;; *);
+	[количество строк]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Количество строк - свойство компонента пользовательского интерфейса, который задает высоту компонента в виде строк.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Rows is a property of a user interface component that sets the height of the component as rows.](* <- lang_en;;*);;
+		*);;
+	*);;

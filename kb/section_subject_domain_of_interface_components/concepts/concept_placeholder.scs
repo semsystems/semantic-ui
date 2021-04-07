@@ -1,0 +1,26 @@
+concept_placeholder
+<- sc_node_not_relation;
+=> nrel_json_idtf: [placeholder];
+=> nrel_main_idtf:
+	[placeholder]
+	(* <- lang_en;; *);
+	[подсказка]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Подсказка- это свойство компонента пользовательского интерфейса, который выводит текст внутри поля формы, который исчезает при получении фокуса.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Placeholder is a property of a user interface component that outputs text inside a form field that disappears when it gets focus.](* <- lang_en;;*);;
+		*);;
+	*);;

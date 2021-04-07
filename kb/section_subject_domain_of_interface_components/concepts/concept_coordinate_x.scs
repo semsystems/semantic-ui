@@ -1,0 +1,29 @@
+concept_coordinate_x
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[x];
+=> nrel_main_idtf:
+	[координата x]
+	(* <- lang_ru;; *);
+	[coordinate x]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Координата x - это свойство компонента пользовательского интерфейса, значение которого определяет местоположение компонента по оси OX.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[The x coordinate is a property of a user interface component whose value determines the component's location on the OX axis.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

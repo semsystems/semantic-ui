@@ -1,0 +1,35 @@
+concept_slider
+<- sc_node_not_relation;
+=> nrel_json_idtf: [Slider];
+=> nrel_main_idtf:
+	[ползунок]
+	(* <- lang_ru;; *);
+	[slider]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_atomic_component_of_user_interface;
+=> nrel_properties_set: ...
+	(*
+	-> concept_id;;
+	-> concept_disabled;;
+	-> concept_min;;
+	-> concept_max;;
+	-> concept_step;;
+	*);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Ползунок — знак команды просмотра части окна.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[The slider is the sign of the command of view part of the window.](* <- lang_en;;*);;
+		*);;
+	*);;

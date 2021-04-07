@@ -1,0 +1,25 @@
+concept_non_atomic_component_of_user_interface
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[неатомарный компонент пользовательского интерфейса]
+	(* <- lang_ru;; *);
+	[non atomic user interface component]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Неатомарный компонент пользовательского интерфейса - компонент пользовательского интерфейса, состоящий из других компонентов пользовательского интерфейса.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A non atomic user interface component is a user interface component that consists of other user interface components.](* <- lang_en;;*);;
+		*);;
+	*);;

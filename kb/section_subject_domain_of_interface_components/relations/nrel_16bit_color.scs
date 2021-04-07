@@ -1,0 +1,29 @@
+nrel_16bit_color
+<-sc_node_norole_relation;
+<-relation;
+<-binary_relation;
+<-oriented_relation;
+<-antireflexive_relation;
+<-asymmetric_relation;
+<-antitransitive_relation;
+=> nrel_main_idtf: 
+	[16-битный цвет* ] 
+    	(* <- lang_ru;; *);
+	[16 bit color* ] 
+    	(* <- lang_en;; *);
+
+<- rrel_key_sc_element: ...
+	(*
+	 <- explanation;;
+	 <= nrel_sc_text_translation:	
+	 ...
+	  (*
+	  -> rrel_example: 
+		[16-битный цвет* - это бинарное ориентированное отношение, связывающее цвет компонента пользовательского интерфейса с его 16-битным значением.](* <- lang_ru;; *);;
+	  *);
+	 ...
+	  (*
+	  -> rrel_example:
+		[16-bit color* is a binary oriented relation that relates the color of a user interface component to its 16-bit value.](* <- lang_en;; *);;
+	  *);;
+	*);;

@@ -1,0 +1,26 @@
+concept_src
+<- sc_node_not_relation;
+=> nrel_json_idtf: [src];
+=> nrel_main_idtf:
+	[src]
+	(* <- lang_en;; *);
+	[адрес файла]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Адрес файла- свойство изображения, который указывает адрес файла, который будет загружаться.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Src is an image property that specifies the address of the file to be uploaded.](* <- lang_en;;*);;
+		*);;
+	*);;

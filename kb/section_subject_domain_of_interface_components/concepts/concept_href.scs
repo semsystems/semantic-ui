@@ -1,0 +1,26 @@
+concept_href
+<- sc_node_not_relation;
+=> nrel_json_idtf: [href];
+=> nrel_main_idtf:
+	[href]
+	(* <- lang_en;; *);
+	[адрес]
+	(* <- lang_ru;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Адрес - свойство компонента пользовательского интерфейса, который задает адрес документа, на который следует перейти.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Href is a property of the user interface component that specifies the address of the document to go to.](* <- lang_en;;	*);;
+		*);;
+	*);;

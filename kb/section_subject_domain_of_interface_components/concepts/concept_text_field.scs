@@ -1,0 +1,41 @@
+concept_text_field
+<- sc_node_not_relation;
+=> nrel_json_idtf: [TextField];
+=> nrel_main_idtf:
+	[текстовое поле]
+	(* <- lang_ru;; *);
+	[text field]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_text_component;
+=> nrel_properties_set: ...
+	(*
+	-> concept_id;;
+	-> concept_text;;
+	-> concept_color;;
+	-> concept_disable;;
+	-> concept_width;;
+	-> concept_height;;
+	-> concept_coordinate_x;;
+	-> concept_coordinate_y;;
+	-> concept_maxlenght;;
+	-> concept_rows;;
+	-> concept_placeholder;;
+	*);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Текстовое поле — текстовый компонент, допускающий ввод строк текста.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A text field is a text component that allows you to enter lines of text.](* <- lang_en;;*);;
+		*);;
+	*);;

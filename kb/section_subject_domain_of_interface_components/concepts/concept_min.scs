@@ -1,0 +1,26 @@
+concept_min
+<- sc_node_not_relation;
+=> nrel_json_idtf: [min];
+=> nrel_main_idtf:
+	[min]
+	(* <- lang_en;; *);
+	[минимальное значение]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Минимальное значение - свойство компонента пользовательского интерфейса, который устанавливает нижнее значение.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Min is a property of the user interface component that sets the lower value.](* <- lang_en;;*);;
+		*);;
+	*);;

@@ -6,6 +6,10 @@ ui_main_menu <= nrel_ui_commands_decomposition:
 {
 	ui_menu_na_view_kb;
 	ui_menu_na_example_commands
+};
+
+<= nrel_section_decomposition: {
+	section_subject_domain_of_user_interface_components
 };;
 
 

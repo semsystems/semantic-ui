@@ -1,0 +1,31 @@
+nrel_json_idtf
+<-sc_node_norole_relation;
+<-relation;
+<-binary_relation;
+<-oriented_relation;
+<-antireflexive_relation;
+<-asymmetric_relation;
+<-antitransitive_relation;
+=> nrel_main_idtf: 
+	[json идентификатор* ]
+	(* <- lang_ru;; *);
+	[json identifier* ]
+	(* <- lang_en;; *);
+	
+
+<- rrel_key_sc_element: ...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+		[JSON идентификатор* - это бинарное ориентированное отношение, связывающее компонент пользовательского интерфейса с файлом, содержащим его json идентификатор.](* <- lang_ru;; *);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+		[A JSON identifier* is a binary oriented relationship that binds a user interface component with a file containing its json identifier.](* <- lang_en;; *);;
+		*);;
+	*);;

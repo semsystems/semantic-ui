@@ -1,0 +1,27 @@
+concept_font
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[font];
+=> nrel_main_idtf:
+	[шрифт текста]
+	(* <- lang_ru;; *);
+	[font]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+		[Шрифт текста - свойство текста, определяющее его стилистические особенности.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+		[The font of the text is a property of the text that determines its stylistic features.](* <- lang_en;;	*);;
+		*);;
+	*);;

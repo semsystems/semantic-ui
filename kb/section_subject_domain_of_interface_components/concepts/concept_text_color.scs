@@ -1,0 +1,26 @@
+concept_text_color
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[text color];
+=> nrel_main_idtf:
+	[цвет текста]
+	(* <- lang_ru;; *);
+	[text color]
+	(* <- lang_en;; *);
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Цвет текста - свойство текста, определяющее его расцветку.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Text color is a property of the text that determines its color.](* <- lang_en;;*);;
+		*);;
+	*);;
