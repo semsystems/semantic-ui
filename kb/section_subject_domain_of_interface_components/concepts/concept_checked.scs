@@ -26,3 +26,21 @@ concept_checked
 			(* <- lang_en;;	*);;
 		*);;
 	*);;
+
+concept_checked_false
+<- concept_disable;
+=> nrel_json_idtf: [false];
+=> nrel_main_idtf:
+	[no checked]
+	(* <- lang_en;; *);
+	[элемент не выбран заранее]
+	(* <- lang_ru;; *);;
+
+concept_checked_true
+<- concept_disable;
+=> nrel_json_idtf: [true];
+=> nrel_main_idtf:
+	[checked]
+	(* <- lang_en;; *);
+	[элемент выбран заранее]
+	(* <- lang_ru;; *);;

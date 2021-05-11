@@ -11,7 +11,7 @@ concept_check_box
 	(*
 	-> concept_id;;
 	-> concept_text;;
-	-> concept_disabled;;
+	-> concept_disable;;
 	-> concept_coordinate_x;;
 	-> concept_coordinate_y;;
 	-> concept_checked;;

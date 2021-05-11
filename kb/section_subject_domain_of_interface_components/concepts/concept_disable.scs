@@ -1,4 +1,4 @@
-concept_disabled
+concept_disable
 <- sc_node_not_relation;
 => nrel_json_idtf: [disabled];
 => nrel_main_idtf:
@@ -25,3 +25,21 @@ concept_disabled
 		(* <- lang_en;;*);;
 		*);;
 	*);;
+
+concept_disable_false
+<- concept_disable;
+=> nrel_json_idtf: [false];
+=> nrel_main_idtf:
+	[disabled]
+	(* <- lang_en;; *);
+	[доступ и изменение заблокирован]
+	(* <- lang_ru;; *);;
+
+concept_disable_true
+<- concept_disable;
+=> nrel_json_idtf: [true];
+=> nrel_main_idtf:
+	[no disabled]
+	(* <- lang_en;; *);
+	[доступ и изменение разрешен]
+	(* <- lang_ru;; *);;

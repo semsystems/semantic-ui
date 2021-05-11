@@ -1,0 +1,99 @@
+button1
+<- concept_button;
+=> nrel_json_idtf: [Button];
+=> nrel_main_idtf:
+	[кнопка начала]
+	(* <- lang_ru;; *);
+	[start button]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+12 <- sc_node;;
+10 <- sc_node;;
+4 <- sc_node;;
+25 <- sc_node;;
+
+//text_size
+..node1 <- sc_node_class;;
+@pair1 = (..node1 -> button1);;
+@pair2 = (concept_text_size -> ..node1);;
+@pair3 = (..node1 => 12);;
+@pair4 = (nrel_pt -> @pair3);;
+@pair5 = (number -> 12);;
+
+//disable
+@pair6 = (concept_disable_true -> button1);;
+
+
+//button color
+..node2 <- sc_node_class;;
+@link1 = [#FFB6C1];;
+@pair47 = (concept_color -> ..node2);;
+@pair7 = (..node2 => @link1);;
+@pair8 = (nrel_16bit_color -> @pair7);;
+@pair46 = (nrel_json_idtf  -> @pair7);;
+@pair9 = (..node2 -> button1);;
+
+//button height
+..node3 <- sc_node_class;;
+@pair10 = (..node3 -> button1);;
+@pair11 = (concept_height -> ..node3);;
+@pair12 = (..node3 => 4);;
+@pair13 = (nrel_json_idtf  -> @pair12);;
+@pair14 = (number -> 4);;
+
+//button width
+..node4 <- sc_node_class;;
+@pair15 = (..node4 -> button1);;
+@pair16 = (concept_width -> ..node4);;
+@pair17 = (..node4 => 10);;
+@pair18 = (nrel_json_idtf  -> @pair17);;
+@pair19 = (number -> 10);;
+
+//coordinate x
+..node5 <- sc_node_class;;
+@pair20 = (..node5 -> button1);;
+@pair21 = (concept_coordinate_x -> ..node5);;
+@pair22 = (..node5 => 25);;
+@pair23 = (nrel_dp -> @pair22);;
+@pair24 = (number -> 25);;
+
+//coordinate y
+..node6 <- sc_node_class;;
+@pair25 = (..node6 -> button1);;
+@pair26 = (concept_coordinate_y -> ..node6);;
+@pair27 = (..node6 => 25);;
+@pair28 = (nrel_dp -> @pair27);;
+@pair29 = (number -> 25);;
+
+//id
+..node7 <- sc_node_class;;
+@link2 = [startButton];;
+@pair30 = (concept_id -> ..node7);;
+@pair31 = (..node7 => @link2);;
+@pair32 = (nrel_json_idtf -> @pair31);;
+@pair33 = (..node7 -> button1);;
+
+//text
+..node8 <- sc_node_class;;
+@link3 = [Send];;
+@pair34 = (concept_text -> ..node8);;
+@pair35 = (..node8 => @link3);;
+@pair36 = (nrel_json_idtf -> @pair35);;
+@pair37 = (..node8 -> button1);;
+
+//text color
+..node9 <- sc_node_class;;
+@link4 = [black];;
+@pair38 = (concept_text_color -> ..node9);;
+@pair39 = (..node9 => @link4);;
+@pair40 = (nrel_json_idtf -> @pair39);;
+@pair41 = (..node9 -> button1);;
+
+//font
+..node10 <- sc_node_class;;
+@link5 = [Roboto];;
+@pair42 = (concept_font -> ..node10);;
+@pair43 = (..node10 => @link5);;
+@pair44 = (nrel_json_idtf -> @pair43);;
+@pair45 = (..node10 -> button1);;

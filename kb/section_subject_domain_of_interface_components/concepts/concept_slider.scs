@@ -10,7 +10,7 @@ concept_slider
 => nrel_properties_set: ...
 	(*
 	-> concept_id;;
-	-> concept_disabled;;
+	-> concept_disable;;
 	-> concept_min;;
 	-> concept_max;;
 	-> concept_step;;

@@ -1,0 +1,76 @@
+checkBox1
+<- concept_check_box;
+=> nrel_json_idtf: [CheckBox];
+=> nrel_main_idtf:
+	[первая флаговая кнопка]
+	(* <- lang_ru;; *);
+	[the first check box]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+13 <- sc_node;;
+65 <- sc_node;;
+10 <- sc_node;;
+
+//id
+..node1 <- sc_node_class;;
+@link1 = [firstCheck];;
+@pair1 = (concept_id -> ..node1);;
+@pair2 = (..node1 => @link1);;
+@pair3 = (nrel_json_idtf -> @pair2);;
+@pair4 = (..node1 ->checkBox1);;
+
+//text
+..node2 <- sc_node_class;;
+@link2 = [Smile];;
+@pair5 = (concept_text -> ..node2);;
+@pair6 = (..node2 => @link2);;
+@pair7 = (nrel_json_idtf -> @pair6);;
+@pair8 = (..node2 ->checkBox1);;
+
+//text color
+..node3 <- sc_node_class;;
+@link3 = [green];;
+@pair9 = (concept_text_color -> ..node3);;
+@pair10 = (..node3 => @link3);;
+@pair11 = (nrel_json_idtf -> @pair10);;
+@pair12 = (..node3 ->checkBox1);;
+
+//text_size
+..node5 <- sc_node_class;;
+@pair13 = (..node5 ->checkBox1);;
+@pair14 = (concept_text_size -> ..node5);;
+@pair15 = (..node5 => 13);;
+@pair16 = (nrel_pt -> @pair15);;
+@pair17 = (number -> 13);;
+
+//disable
+@pair18= (concept_disable_false ->checkBox1);;
+
+//font
+..node7 <- sc_node_class;;
+@link5 = [Arial MT];;
+@pair23 = (concept_font -> ..node7);;
+@pair24 = (..node7 => @link5);;
+@pair25 = (nrel_json_idtf -> @pair24);;
+@pair26 = (..node7 ->checkBox1);;
+
+//coordinate x
+..node10 <- sc_node_class;;
+@pair37 = (..node10 ->checkBox1);;
+@pair38 = (concept_coordinate_x -> ..node10);;
+@pair39 = (..node10 => 10);;
+@pair40 = (nrel_dp -> @pair39);;
+@pair41 = (number -> 10);;
+
+//coordinate y
+..node11 <- sc_node_class;;
+@pair42 = (..node11->checkBox1);;
+@pair43 = (concept_coordinate_y -> ..node11);;
+@pair44 = (..node11 => 65);;
+@pair45 = (nrel_dp -> @pair44);;
+@pair46 = (number -> 65);;
+
+
+//checked
+@pair19= (concept_checked_true -> checkBox1);;

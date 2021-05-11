@@ -1,0 +1,52 @@
+image1
+<- concept_image;
+=> nrel_json_idtf: [Image];
+=> nrel_main_idtf:
+	[главное изображение]
+	(* <- lang_ru;; *);
+	[main Image]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+1200 <- sc_node;;
+600 <- sc_node;;
+
+//id
+..node1 <- sc_node_class;;
+@link1 = [mainImage];;
+@pair1 = (concept_id -> ..node1);;
+@pair2 = (..node1 => @link1);;
+@pair3 = (nrel_json_idtf -> @pair2);;
+@pair4 = (..node1 ->image1);;
+
+//src
+..node2 <- sc_node_class;;
+@link2 = [ C:\\Users\\User\\Desktop\\flowers\\photo.png ];;
+@pair5 = (concept_src -> ..node2);;
+@pair6 = (..node2 => @link2);;
+@pair7 = (nrel_json_idtf -> @pair6);;
+@pair8 = (..node2 ->image1);;
+
+//width
+..node3 <- sc_node_class;;
+@pair9 = (..node3 -> image1);;
+@pair10 = (concept_width -> ..node3);;
+@pair11 = (..node3 => 1200);;
+@pair12 = (nrel_json_idtf  -> @pair11);;
+@pair13 = (number -> 1200);;
+
+//height
+..node4 <- sc_node_class;;
+@pair14 = (..node4 -> image1);;
+@pair15 = (concept_height -> ..node4);;
+@pair16 = (..node4 => 600);;
+@pair17 = (nrel_json_idtf  -> @pair16);;
+@pair18 = (number -> 600);;
+
+//alt
+..node5 <- sc_node_class;;
+@link3 = [Failure];;
+@pair19 = (concept_id -> ..node5);;
+@pair20 = (..node5 => @link3);;
+@pair21 = (nrel_json_idtf -> @pair20);;
+@pair22 = (..node5 ->image1);;

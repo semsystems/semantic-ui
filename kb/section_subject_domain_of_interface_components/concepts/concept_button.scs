@@ -17,7 +17,7 @@ concept_button
 	-> concept_height;;
 	-> concept_coordinate_x;;
 	-> concept_coordinate_y;;
-	-> concept_disabled;;
+	-> concept_disable;;
 	*);
 <- rrel_key_sc_element:
 	...

@@ -1,0 +1,109 @@
+link1
+<- concept_link;
+=> nrel_json_idtf: [Link];
+=> nrel_main_idtf:
+	[ссылка на сайт sem.systems]
+	(* <- lang_ru;; *);
+	[link to the sem.systems website]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+12 <- sc_node;;
+15 <- sc_node;;
+3 <- sc_node;;
+50 <- sc_node;;
+35 <- sc_node;;
+
+//href
+..node1 <- sc_node_class;;
+@link1 = [https://sem.systems/];;
+@pair6 = (concept_href -> ..node1);;
+@pair7 = (..node1 => @link1);;
+@pair8 = (nrel_json_idtf  -> @pair7);;
+@pair9 = (..node1 -> link1);;
+
+//id
+..node2 <- sc_node_class;;
+@link2 = [semLink];;
+@pair10 = (concept_id -> ..node2);;
+@pair11 = (..node2 => @link2);;
+@pair12 = (nrel_json_idtf -> @pair11);;
+@pair13 = (..node2 -> link1);;
+
+//text
+..node3 <- sc_node_class;;
+@link3 = [Сompany website];;
+@pair14 = (concept_text -> ..node3);;
+@pair15 = (..node3 => @link3);;
+@pair16 = (nrel_json_idtf -> @pair15);;
+@pair17 = (..node3 -> link1);;
+
+//text color
+..node4 <- sc_node_class;;
+@link4 = [blue];;
+@pair18 = (concept_text_color -> ..node4);;
+@pair19 = (..node4 => @link4);;
+@pair20 = (nrel_json_idtf -> @pair19);;
+@pair21 = (..node4 -> link1);;
+
+//text_size
+..node5 <- sc_node_class;;
+@pair22 = (..node5 -> link1);;
+@pair23 = (concept_text_size -> ..node5);;
+@pair24 = (..node5 => 12);;
+@pair25 = (nrel_pt -> @pair24);;
+@pair26 = (number -> 12);;
+
+//link color
+..node6<- sc_node_class;;
+@link5 = [#FFB6C3];;
+@pair27 = (concept_color -> ..node6);;
+@pair28 = (..node6=> @link5);;
+@pair29 = (nrel_16bit_color -> @pair28);;
+@pair30 = (nrel_json_idtf  -> @pair28);;
+@pair31 = (..node6-> link1);;
+
+//disable
+@pair1 = (concept_disable_false -> link1);;
+
+//font
+..node7 <- sc_node_class;;
+@link6 = [Roboto];;
+@pair32 = (concept_font -> ..node7);;
+@pair33 = (..node7 => @link6);;
+@pair34 = (nrel_json_idtf -> @pair33);;
+@pair35 = (..node7 -> link1);;
+
+//link width
+..node8 <- sc_node_class;;
+@pair36 = (..node8 -> link1);;
+@pair37 = (concept_width -> ..node8);;
+@pair38 = (..node8 => 15);;
+@pair39 = (nrel_json_idtf  -> @pair38);;
+@pair40 = (number -> 15);;
+
+//link height
+..node9 <- sc_node_class;;
+@pair41 = (..node9 -> link1);;
+@pair42 = (concept_height -> ..node9);;
+@pair43 = (..node9 => 3);;
+@pair44 = (nrel_json_idtf  -> @pair43);;
+@pair45 = (number -> 3);;
+
+//coordinate x
+..node10 <- sc_node_class;;
+@pair46 = (..node10 -> link1);;
+@pair47 = (concept_coordinate_x -> ..node10);;
+@pair48 = (..node10 => 50);;
+@pair49 = (nrel_dp -> @pair48);;
+@pair50 = (number -> 50);;
+
+//coordinate y
+..node11 <- sc_node_class;;
+@pair51 = (..node11-> link1);;
+@pair52 = (concept_coordinate_y -> ..node11);;
+@pair53 = (..node11 => 35);;
+@pair54 = (nrel_dp -> @pair53);;
+@pair55 = (number -> 35);;
+
+

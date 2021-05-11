@@ -1,0 +1,48 @@
+slider1
+<- concept_slider;
+=> nrel_json_idtf: [Slider];
+=> nrel_main_idtf:
+	[главный slider]
+	(* <- lang_ru;; *);
+	[main slider]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+1 <- sc_node;;
+255 <- sc_node;;
+
+//id
+..node1 <- sc_node_class;;
+@link1 = [mainslider];;
+@pair1 = (concept_id -> ..node1);;
+@pair2 = (..node1 => @link1);;
+@pair3 = (nrel_json_idtf -> @pair2);;
+@pair4 = (..node1 ->slider1);;
+
+//disable
+@pair5= (concept_disable_false ->slider1);;
+
+//min
+..node2 <- sc_node_class;;
+@pair6 = (..node2 ->slider1);;
+@pair7 = (concept_min -> ..node2);;
+@pair8 = (..node2 => 1);;
+@pair9 = (nrel_json_idtf -> @pair8);;
+@pair10 = (number -> 1);;
+
+//max
+..node3 <- sc_node_class;;
+@pair11 = (..node3 ->slider1);;
+@pair12 = (concept_max -> ..node3);;
+@pair13 = (..node3 => 255);;
+@pair14 = (nrel_json_idtf -> @pair13);;
+@pair15 = (number -> 255);;
+
+//step
+..node4 <- sc_node_class;;
+@pair16 = (..node4->slider1);;
+@pair17 = (concept_step -> ..node4);;
+@pair18 = (..node4 => 1);;
+@pair19 = (nrel_json_idtf-> @pair18);;
+@pair20 = (number -> 1);;
+

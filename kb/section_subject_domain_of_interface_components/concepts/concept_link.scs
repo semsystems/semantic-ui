@@ -13,7 +13,7 @@ concept_link
 	-> concept_id;;
 	-> concept_text;;
 	-> concept_color;;
-	-> color_disabled;;
+	-> color_disable;;
 	-> concept_width;;
 	-> concept_height;;
 	-> concept_coordinate_x;;

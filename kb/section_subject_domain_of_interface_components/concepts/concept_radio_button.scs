@@ -12,7 +12,7 @@ concept_radio_button
 	(*
 	-> concept_id;;
 	-> concept_text;;
-	-> concept_disabled;;
+	-> concept_disable;;
 	-> concept_coordinate_x;;
 	-> concept_coordinate_y;;
 	-> concept_checked;;

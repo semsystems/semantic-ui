@@ -1,0 +1,96 @@
+label1
+<- concept_label;
+=> nrel_json_idtf: [Label];
+=> nrel_main_idtf:
+	[главная метка]
+	(* <- lang_ru;; *);
+	[main Label]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+14 <- sc_node;;
+15 <- sc_node;;
+3 <- sc_node;;
+50 <- sc_node;;
+45 <- sc_node;;
+
+//id
+..node2 <- sc_node_class;;
+@label1 = [mainLabel];;
+@pair10 = (concept_id -> ..node2);;
+@pair11 = (..node2 => @label1);;
+@pair12 = (nrel_json_idtf -> @pair11);;
+@pair13 = (..node2 -> label1);;
+
+//text
+..node3 <- sc_node_class;;
+@link3 = [Hello];;
+@pair14 = (concept_text -> ..node3);;
+@pair15 = (..node3 => @link3);;
+@pair16 = (nrel_json_idtf -> @pair15);;
+@pair17 = (..node3 -> label1);;
+
+//text color
+..node4 <- sc_node_class;;
+@link4 = [purple];;
+@pair18 = (concept_text_color -> ..node4);;
+@pair19 = (..node4 => @link4);;
+@pair20 = (nrel_json_idtf -> @pair19);;
+@pair21 = (..node4 -> label1);;
+
+//text_size
+..node5 <- sc_node_class;;
+@pair22 = (..node5 -> label1);;
+@pair23 = (concept_text_size -> ..node5);;
+@pair24 = (..node5 => 14);;
+@pair25 = (nrel_pt -> @pair24);;
+@pair26 = (number -> 14);;
+
+//color
+..node6<- sc_node_class;;
+@link5 = [#FFF3B7];;
+@pair27 = (concept_color -> ..node6);;
+@pair28 = (..node11=> @link5);;
+@pair29 = (nrel_16bit_color -> @pair28);;
+@pair30 = (nrel_json_idtf  -> @pair28);;
+@pair31 = (..node11-> label1);;
+
+//font
+..node7 <- sc_node_class;;
+@link6 = [Roboto];;
+@pair32 = (concept_font -> ..node7);;
+@pair33 = (..node7 => @link6);;
+@pair34 = (nrel_json_idtf -> @pair33);;
+@pair35 = (..node7 -> label1);;
+
+//link width
+..node8 <- sc_node_class;;
+@pair36 = (..node8 -> label1);;
+@pair37 = (concept_width -> ..node8);;
+@pair38 = (..node8 => 15);;
+@pair39 = (nrel_json_idtf  -> @pair38);;
+@pair40 = (number -> 15);;
+
+//link height
+..node9 <- sc_node_class;;
+@pair41 = (..node9 -> label1);;
+@pair42 = (concept_height -> ..node9);;
+@pair43 = (..node9 => 3);;
+@pair44 = (nrel_json_idtf  -> @pair43);;
+@pair45 = (number -> 3);;
+
+//coordinate x
+..node10 <- sc_node_class;;
+@pair46 = (..node10 -> label1);;
+@pair47 = (concept_coordinate_x -> ..node10);;
+@pair48 = (..node10 => 50);;
+@pair49 = (nrel_dp -> @pair48);;
+@pair50 = (number -> 50);;
+
+//coordinate y
+..node11 <- sc_node_class;;
+@pair51 = (..node11-> label1);;
+@pair52 = (concept_coordinate_y -> ..node6);;
+@pair53 = (..node11 => 45);;
+@pair54 = (nrel_dp -> @pair53);;
+@pair55 = (number -> 45);;

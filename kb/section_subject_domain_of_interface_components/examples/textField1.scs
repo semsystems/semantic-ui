@@ -1,0 +1,125 @@
+textField1
+<- concept_text_field;
+=> nrel_json_idtf: [TextField];
+=> nrel_main_idtf:
+	[текстовое поле приветствия]
+	(* <- lang_ru;; *);
+	[welcome textfield]
+	(* <- lang_en;; *);;
+
+number <- sc_node_class;;
+13 <- sc_node;;
+15 <- sc_node;;
+3 <- sc_node;;
+20 <- sc_node;;
+45 <- sc_node;;
+255 <- sc_node;;
+10 <- sc_node;;
+
+//id
+..node1 <- sc_node_class;;
+@link1 = [welcome];;
+@pair1 = (concept_id -> ..node1);;
+@pair2 = (..node1 => @link1);;
+@pair3 = (nrel_json_idtf -> @pair2);;
+@pair4 = (..node1 -> textField1);;
+
+//text
+..node2 <- sc_node_class;;
+@link2 = [Hello world];;
+@pair5 = (concept_text -> ..node2);;
+@pair6 = (..node2 => @link2);;
+@pair7 = (nrel_json_idtf -> @pair6);;
+@pair8 = (..node2 -> textField1);;
+
+//text color
+..node3 <- sc_node_class;;
+@link3 = [pink];;
+@pair9 = (concept_text_color -> ..node3);;
+@pair10 = (..node3 => @link3);;
+@pair11 = (nrel_json_idtf -> @pair10);;
+@pair12 = (..node3 -> textField1);;
+
+//text_size
+..node5 <- sc_node_class;;
+@pair13 = (..node5 -> textField1);;
+@pair14 = (concept_text_size -> ..node5);;
+@pair15 = (..node5 => 13);;
+@pair16 = (nrel_pt -> @pair15);;
+@pair17 = (number -> 13);;
+
+//TextField color
+..node6<- sc_node_class;;
+@link4 = [#28E0D1];;
+@pair18 = (concept_color -> ..node6);;
+@pair19 = (..node6=> @link4);;
+@pair20 = (nrel_16bit_color -> @pair19);;
+@pair21 = (nrel_json_idtf  -> @pair19);;
+@pair22 = (..node6-> textField1);;
+
+//disable
+@pair59 = (concept_disable_false -> textField1);;
+
+//font
+..node7 <- sc_node_class;;
+@link5 = [Arial MT];;
+@pair23 = (concept_font -> ..node7);;
+@pair24 = (..node7 => @link5);;
+@pair25 = (nrel_json_idtf -> @pair24);;
+@pair26 = (..node7 -> textField1);;
+
+//link width
+..node8 <- sc_node_class;;
+@pair27 = (..node8 -> textField1);;
+@pair28 = (concept_width -> ..node8);;
+@pair29 = (..node8 => 15);;
+@pair30 = (nrel_json_idtf  -> @pair29);;
+@pair31 = (number -> 15);;
+
+//link height
+..node9 <- sc_node_class;;
+@pair32 = (..node9 -> textField1);;
+@pair33 = (concept_height -> ..node9);;
+@pair34 = (..node9 => 3);;
+@pair35 = (nrel_json_idtf -> @pair34);;
+@pair36 = (number -> 3);;
+
+//coordinate x
+..node10 <- sc_node_class;;
+@pair37 = (..node10 -> textField1);;
+@pair38 = (concept_coordinate_x -> ..node10);;
+@pair39 = (..node10 => 20);;
+@pair40 = (nrel_dp -> @pair39);;
+@pair41 = (number -> 20);;
+
+//coordinate y
+..node11 <- sc_node_class;;
+@pair42 = (..node11-> textField1);;
+@pair43 = (concept_coordinate_y -> ..node11);;
+@pair44 = (..node11 => 45);;
+@pair45 = (nrel_dp -> @pair44);;
+@pair46 = (number -> 45);;
+
+//maxlenght
+..node12 <- sc_node_class;;
+@pair47 = (..node12-> textField1);;
+@pair48 = (concept_maxlenght -> ..node12);;
+@pair49 = (..node12 => 255);;
+@pair50 = (nrel_json_idtf  -> @pair49);;
+@pair51 = (number -> 255);;
+
+//rows
+..node13 <- sc_node_class;;
+@pair52 = (..node13-> textField1);;
+@pair53 = (concept_rows -> ..node13);;
+@pair54 = (..node13 => 10);;
+@pair55 = (nrel_json_idtf  -> @pair54);;
+@pair56 = (number -> 10);;
+
+//placeholder
+..node14<- sc_node_class;;
+@link6 = [This is text];;
+@pair57 = (concept_placeholder -> ..node14);;
+@pair58 = (..node14=> @link6);;
+@pair59 = (nrel_json_idtf  -> @pair58);;
+@pair58 = (..node14-> textField1);;
