@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { ScAddr } from '@ostis/sc-core';
 import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
-
-import { Layout, Select, Button as Btn, Menu, Switch, Radio, Input } from 'antd';
+import { Link } from 'react-router-dom';
+import { Layout, Select, Button as Btn, Menu, Switch, Radio, Input, Checkbox, Slider, Image, Progress } from 'antd';
 import { GooglePlusOutlined, PrinterOutlined, ArrowsAltOutlined, LinkOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -25,7 +25,7 @@ export const Library = {
     footer: Footer,
     select: Select,
     option: Option,
-    button: Btn,
+    Button: Btn,
     menu: Menu,
     item: Item,
     block: 'div',
@@ -38,6 +38,14 @@ export const Library = {
     group: Group,
     btn: Button,
     input: Input,
+    Link: 'a',
+    TextField: Input,
+    RadioButton: Radio,
+    CheckBox: Checkbox,
+    Slider: Slider,
+    Image: Image,
+    Progress: Progress,
+    Label: 'label',
 };
 
 function mapStateToProps(state: store.Store): KnowledgeBaseProps {
@@ -60,11 +68,13 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
     const iterateProps = (style: unknown): any => {
         const semanticProps = {
             textColor: 'color',
-            textSize: 'fontSize',
+            textSize: 'font-size',
             color: 'backgroundColor',
-            font: 'fontFamily',
+            font: 'font-family',
             width: 'width',
             height: 'height',
+            x: 'left',
+            y: 'top',
         };
 
         const renameKeys = (keysMap: unknown, obj: unknown) =>
@@ -80,15 +90,22 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
     };
 
     const iterate = (model: UIComponent[]) => {
-        return model.map((e) => {
+        return model.map(e => {
             const { component, text, ...prop } = e;
             const CSS = iterateProps({ ...prop });
+            if (prop['disabled'] == 'false') {
+                //                @ts-ignore
+                prop['disabled'] = false;
+            }
+            CSS['textSize'] = CSS['textSize'] + 'pt';
+            CSS['width'] = CSS['width'] + 'dp';
+            CSS['height'] = CSS['height'] + 'dp';
             return React.createElement(lib[component], { style: CSS, key: nanoid(), ...prop }, text);
         });
     };
 
     const Tree = iterate(model);
-    return <div key={nanoid()}>{Tree}</div>;
+    return <div>{Tree}</div>;
 }
 
 export const UiModuleImpl: React.FC<KnowledgeBaseProps> = (props: KnowledgeBaseProps) => {
@@ -106,7 +123,7 @@ export const UiModuleImpl: React.FC<KnowledgeBaseProps> = (props: KnowledgeBaseP
         return json;
     };
     useEffect(() => {
-        loadUiJson().then((json) => {
+        loadUiJson().then(json => {
             setJsonLinkContent('[' + json + ']');
         });
     });
