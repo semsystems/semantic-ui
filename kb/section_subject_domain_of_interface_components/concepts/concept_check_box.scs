@@ -34,4 +34,14 @@ concept_check_box
 			[The check box is a sign of the mode setting command.]
 			(* <- lang_en;;	*);;
 		*);;
+*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/checkbox.jpg" (* => nrel_format: format_jpg;; *);;
+	*);;
 *);;
+

@@ -32,4 +32,14 @@ concept_slider
 		-> rrel_example:
 			[The slider is the sign of the command of view part of the window.](* <- lang_en;;*);;
 		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/slider.jpg" (* => nrel_format: format_jpg;; *);;
 	*);;
+*);;
+

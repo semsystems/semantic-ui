@@ -34,4 +34,13 @@ concept_label
 		-> rrel_example:
 			[The label is a sign of the scg-frame, which is the identifier of a certain command.](* <- lang_en;;*);;
 		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/label.png" (* => nrel_format: format_png;; *);;
 	*);;
+*);;

@@ -36,4 +36,13 @@ concept_link
 		-> rrel_example:
 			[Link is a sign that points to certain data, but doesn't store it.](* <- lang_en;;*);;
 		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/link.jpg" (* => nrel_format: format_jpg;; *);;
 	*);;
+*);;

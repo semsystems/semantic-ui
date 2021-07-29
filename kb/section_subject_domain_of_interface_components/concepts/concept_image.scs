@@ -32,4 +32,13 @@ concept_image
 		-> rrel_example:
 			[An image is a graphical, non-symbolic information structure.](* <- lang_en;;*);;
 		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/alt.jpg" (* => nrel_format: format_jpg;; *);;
 	*);;
+*);;

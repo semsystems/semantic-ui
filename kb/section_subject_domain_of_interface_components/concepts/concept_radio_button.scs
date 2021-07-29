@@ -33,4 +33,14 @@ concept_radio_button
 		-> rrel_example:
 			[The radio button is a sign of the alternative selection command.](* <- lang_en;;*);;
 		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/radiobutton.jpg" (* => nrel_format: format_jpg;; *);;
 	*);;
+*);;
+

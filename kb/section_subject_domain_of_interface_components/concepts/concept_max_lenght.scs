@@ -1,5 +1,6 @@
 concept_maxlenght
 <- sc_node_not_relation;
+<- concept_properties_set;
 => nrel_json_idtf: [maxLength];
 => nrel_main_idtf:
 	[maxLength]

@@ -1,5 +1,6 @@
 concept_checked
 <- sc_node_not_relation;
+<- concept_properties_set;
 => nrel_json_idtf: [checked];
 => nrel_main_idtf:
 	[selection label]
@@ -28,6 +29,7 @@ concept_checked
 	*);;
 
 concept_checked_false
+<- sc_node_class;
 <- concept_disable;
 => nrel_json_idtf: [false];
 => nrel_main_idtf:
@@ -37,6 +39,7 @@ concept_checked_false
 	(* <- lang_ru;; *);;
 
 concept_checked_true
+<- sc_node_class;
 <- concept_disable;
 => nrel_json_idtf: [true];
 => nrel_main_idtf:

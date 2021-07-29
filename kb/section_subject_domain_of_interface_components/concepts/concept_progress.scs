@@ -35,4 +35,13 @@ concept_progress
 			[The progress is a sign of the completeness of the execution of a certain process.](* <- lang_en;;*);;
 		*);;
 		
+*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/progress.jpg" (* => nrel_format: format_jpg;; *);;
+	*);;
 *);;

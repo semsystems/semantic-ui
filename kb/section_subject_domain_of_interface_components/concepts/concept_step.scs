@@ -1,5 +1,6 @@
 concept_step
 <- sc_node_not_relation;
+<- concept_properties_set;
 => nrel_json_idtf: [step];
 => nrel_main_idtf:
 	[step]

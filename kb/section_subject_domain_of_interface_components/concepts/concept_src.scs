@@ -1,5 +1,6 @@
 concept_src
 <- sc_node_not_relation;
+<- concept_properties_set;
 => nrel_json_idtf: [src];
 => nrel_main_idtf:
 	[src]
