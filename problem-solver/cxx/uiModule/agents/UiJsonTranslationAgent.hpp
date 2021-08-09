@@ -20,7 +20,10 @@ class UiJsonTranslationAgent : public ScAgent
   SC_CLASS(Agent, Event(scAgentsCommon::CoreKeynodes::question_initiated, ScEvent::Type::AddOutputEdge))
   SC_GENERATED_BODY()
 
+  ScAddr findStructure();
+
   bool isComponentValid(ScAddr const & jsonLink);
+  bool isSimpleComponentValid(ScAddr const & jsonLink);
 
   ScAddr generateAnswer(ScAddr const & uiComponentAddr, ScAddr const & linkAddr);
 
