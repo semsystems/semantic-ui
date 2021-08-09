@@ -1,0 +1,27 @@
+concept_width
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[width];
+=> nrel_main_idtf:
+	[ширина]
+	(* <- lang_ru;; *);
+	[width]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Ширина - числовое свойство компонента пользовательского интерфейса, равное величине его ширины.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Width - a numeric property of a user interface component that is equal to the value of its width.](* <- lang_en;;*);;
+		*);;
+	*);;

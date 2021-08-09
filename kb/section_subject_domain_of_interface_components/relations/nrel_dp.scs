@@ -1,0 +1,31 @@
+nrel_dp
+<-sc_node_norole_relation;
+<-relation;
+<-binary_relation;
+<-oriented_relation;
+<-antireflexive_relation;
+<-asymmetric_relation;
+<-antitransitive_relation;
+=> nrel_json_idtf: [dp];
+=> nrel_main_idtf: 
+	[пиксель, не зависящий от плотности* ] 
+	(* <- lang_ru;; *);
+	[density-independent pixel* ]
+	(* <- lang_en;; *);
+	
+<- rrel_key_sc_element: ...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+		[Пиксель, не зависящий от плотности* - это бинарное ориентированное отношение, связывающее координаты компонента пользовательского интерфейса с их значением.](* <- lang_ru;; *);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+		[A density-independent pixel* is a binary oriented relation that relates the coordinates of a component of user interface with their value.](* <- lang_en;; *);;
+		*);;
+	*);;

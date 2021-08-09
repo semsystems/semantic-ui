@@ -1,0 +1,35 @@
+concept_text_component
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[текстовый компонент]
+	(* <- lang_ru;; *);
+	[text component]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_atomic_component_of_user_interface;
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Текстовый компонент — знак файла.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Text component is a file sign.](* <- lang_en;;*);;
+		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/text.jpg" (* => nrel_format: format_jpg;; *);;
+	*);;
+*);;

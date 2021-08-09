@@ -1,0 +1,26 @@
+concept_max
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf: [max];
+=> nrel_main_idtf:
+	[max]
+	(* <- lang_en;; *);
+	[максимальное значение]
+	(* <- lang_ru;; *);
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Максимальное значение- свойство компонента пользовательского интерфейса, которое устанавливает верхнее значение.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Max is an attribute of the user interface component that sets the top value.](* <- lang_en;;*);;
+		*);;
+	*);;

@@ -1,0 +1,49 @@
+concept_checked
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf: [checked];
+=> nrel_main_idtf:
+	[selection label]
+	(* <- lang_en;; *);
+	[метка выбора]
+	(* <- lang_ru;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Метка выбора - свойство компонентов checkBox и radioButton, которое определяет, помечен ли заранее компонент.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Selection label is an property of the checkBox and radioButton components that determines whether the component is pre-marked.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;
+
+concept_checked_false
+<- sc_node_class;
+<- concept_checked;
+=> nrel_json_idtf: [false];
+=> nrel_main_idtf:
+	[no checked]
+	(* <- lang_en;; *);
+	[элемент не выбран заранее]
+	(* <- lang_ru;; *);;
+
+concept_checked_true
+<- sc_node_class;
+<- concept_checked;
+=> nrel_json_idtf: [true];
+=> nrel_main_idtf:
+	[checked]
+	(* <- lang_en;; *);
+	[элемент выбран заранее]
+	(* <- lang_ru;; *);;

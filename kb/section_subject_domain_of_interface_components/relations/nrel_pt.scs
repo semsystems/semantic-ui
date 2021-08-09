@@ -1,0 +1,31 @@
+nrel_pt
+<-sc_node_norole_relation;
+<-relation;
+<-binary_relation;
+<-oriented_relation;
+<-antireflexive_relation;
+<-asymmetric_relation;
+<-antitransitive_relation;
+=> nrel_json_idtf:[pt];
+=> nrel_main_idtf:
+	[типографский пункт* ]
+	(* <- lang_ru;; *);
+	[pt* ]
+	(* <- lang_en;; *);
+    
+<- rrel_key_sc_element: ...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+		[Tипографский пункт* - это бинарное ориентированное отношение, связывающее размер текста с его значением.](* <- lang_ru;; *);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+		[Pt* is a binary oriented relation that relates the size of a text to its value.](* <- lang_en;; *);;
+		*);;          
+	*);;

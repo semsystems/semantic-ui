@@ -1,0 +1,27 @@
+concept_step
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf: [step];
+=> nrel_main_idtf:
+	[step]
+	(* <- lang_en;; *);
+	[шаг]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Шаг - свойство компонента пользовательского интерфейса, который устанавливает шаг изменения числа.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Step is a property of a user interface component that sets the number change step.](* <- lang_en;;*);;
+		*);;
+	*);;

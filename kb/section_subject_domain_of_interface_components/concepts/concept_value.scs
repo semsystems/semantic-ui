@@ -1,0 +1,27 @@
+concept_value
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[value];
+=> nrel_main_idtf:
+	[value]
+	(* <- lang_en;; *);
+	[значение]
+	(* <- lang_ru;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[](* <- lang_ru;;*);;
+		*);
+
+		...
+		(*
+		-> rrel_example:
+			[](* <- lang_en;;*);;
+		*);;
+	*);;
