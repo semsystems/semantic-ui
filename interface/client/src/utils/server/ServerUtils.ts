@@ -52,21 +52,6 @@ export class ServerUtils extends ServerBase {
 
         construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kRrel1, rrel1EdgeAlias);
 
-        const inclusionEdgeAlias = 'inclusionEdge';
-        construction.CreateEdge(
-            ScType.EdgeDCommonConst,
-            this.keynodes.kConceptComponent,
-            concreteConceptComponentNodeAlias,
-            inclusionEdgeAlias,
-        );
-        construction.CreateEdge(
-            ScType.EdgeAccessConstPosPerm,
-            concreteConceptComponentNodeAlias,
-            this.keynodes.kButton1,
-        );
-
-        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kNrelInclusion, inclusionEdgeAlias);
-
         construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kQuestionInitiated, questionNodeAlias);
 
         const result: ScAddr[] = await this.client.CreateElements(construction);

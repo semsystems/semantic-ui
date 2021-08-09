@@ -1,4 +1,6 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
 import * as store from '../store';
 import { connect } from 'react-redux';
 import { ScAddr } from '@ostis/sc-core';
@@ -18,15 +20,12 @@ export interface KnowledgeBaseProps {
 }
 
 export const Library = {
-    layout: Layout,
     header: Header,
     sider: Sider,
-    content: Content,
     footer: Footer,
     select: Select,
     option: Option,
     Button: Btn,
-    menu: Menu,
     item: Item,
     block: 'div',
     switch: Switch,
@@ -37,7 +36,6 @@ export const Library = {
     linkIcon: LinkOutlined,
     group: Group,
     btn: Button,
-    input: Input,
     Link: 'a',
     TextField: Input,
     RadioButton: Radio,
@@ -68,13 +66,21 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
     const iterateProps = (style: unknown): any => {
         const semanticProps = {
             textColor: 'color',
-            textSize: 'font-size',
+            textSize: 'fontSize',
             color: 'backgroundColor',
-            font: 'font-family',
+            disabled: 'disabled',
+            checked: 'checked',
+            font: 'fontFamily',
+            min: 'min',
+            max: 'max',
+            value: 'percent',
             width: 'width',
             height: 'height',
             x: 'left',
             y: 'top',
+            src: 'src',
+            href: 'href',
+            alt: 'alt',
         };
 
         const renameKeys = (keysMap: unknown, obj: unknown) =>
@@ -90,16 +96,16 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
     };
 
     const iterate = (model: UIComponent[]) => {
-        return model.map(e => {
+        return model.map((e) => {
             const { component, text, ...prop } = e;
             const CSS = iterateProps({ ...prop });
-            if (prop['disabled'] == 'false') {
-                //                @ts-ignore
-                prop['disabled'] = false;
-            }
-            CSS['textSize'] = CSS['textSize'] + 'pt';
-            CSS['width'] = CSS['width'] + 'dp';
-            CSS['height'] = CSS['height'] + 'dp';
+            // if (prop['disabled'] == 'false') {
+            //     //                @ts-ignore
+            //     prop['disabled'] = false;
+            // }
+            CSS['fontSize'] = CSS['fontSize'] + 'pt';
+            // CSS['width'] = CSS['width'] + 'dp';
+            // CSS['height'] = CSS['height'] + 'dp';
             return React.createElement(lib[component], { style: CSS, key: nanoid(), ...prop }, text);
         });
     };
@@ -123,10 +129,11 @@ export const UiModuleImpl: React.FC<KnowledgeBaseProps> = (props: KnowledgeBaseP
         return json;
     };
     useEffect(() => {
-        loadUiJson().then(json => {
+        loadUiJson().then((json) => {
             setJsonLinkContent('[' + json + ']');
         });
     });
+    console.log(JSON.parse(jsonLinkContent));
     return <div>{jsonLinkContent != '[]' && <Interface model={JSON.parse(jsonLinkContent)} lib={Library} />} </div>;
 };
 export const UiModule = connect(mapStateToProps)(UiModuleImpl);

@@ -9,10 +9,10 @@ const sLangEn = 'lang_en';
 const sNrelInclusion = 'nrel_inclusion';
 const sRrel1 = 'rrel_1';
 const sNrelAnswer = 'nrel_answer';
-const sConceptComponent = 'concept_component';
+const sConceptComponent = 'concept_atomic_component_of_user_interface';
 const sActionTranslateToUiJson = 'action_translate_to_ui_json';
 const sFormatUiJson = 'format_ui_json';
-const sButton1 = 'button_2';
+const sButton1 = 'button1';
 
 // Test
 const sTestUser = 'test_user';
