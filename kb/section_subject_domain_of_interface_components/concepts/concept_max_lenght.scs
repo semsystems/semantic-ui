@@ -1,0 +1,27 @@
+concept_maxlenght
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf: [maxLength];
+=> nrel_main_idtf:
+	[maxLength]
+	(* <- lang_en;; *);
+	[максимальное число символов]
+	(* <- lang_ru;; *);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Максимальное число символов- свойство текстового поля, который устанавливает максимальное число символов, которое может быть введено пользователем.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[MaxLength is a text field property that sets the maximum number of characters that can be entered by the user.](* <- lang_en;;*);;
+		*);;
+	*);;

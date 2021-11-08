@@ -1,0 +1,47 @@
+concept_check_box
+<- sc_node_not_relation;
+=> nrel_json_idtf: [CheckBox];
+=> nrel_main_idtf:
+	[флаговая кнопка]
+	(* <- lang_ru;; *);
+	[check box]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_button;
+=> nrel_properties_set: ...
+	(*
+	-> concept_id;;
+	-> concept_text;;
+	-> concept_disable;;
+	-> concept_coordinate_x;;
+	-> concept_coordinate_y;;
+	-> concept_checked;;
+	*);
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Флаговая кнопка — знак команды установки режима.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[The check box is a sign of the mode setting command.]
+			(* <- lang_en;;	*);;
+		*);;
+*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/checkbox.jpg" (* => nrel_format: format_jpg;; *);;
+	*);;
+*);;
+

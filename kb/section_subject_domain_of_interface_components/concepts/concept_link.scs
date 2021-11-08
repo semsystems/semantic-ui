@@ -1,0 +1,48 @@
+concept_link
+<- sc_node_not_relation;
+=> nrel_json_idtf: [Link];
+=> nrel_main_idtf:
+	[ссылка]
+	(* <- lang_ru;; *);
+	[link]
+	(* <- lang_en;; *);
+<=nrel_inclusion: concept_atomic_component_of_user_interface;
+=> nrel_properties_set: ...
+	(*
+	-> concept_href;;
+	-> concept_id;;
+	-> concept_text;;
+	-> concept_color;;
+	-> color_disable;;
+	-> concept_width;;
+	-> concept_height;;
+	-> concept_coordinate_x;;
+	-> concept_coordinate_y;;
+	*);
+	
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Ссылка - знак указывающий на определенные данные, но не хранящий их.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Link is a sign that points to certain data, but doesn't store it.](* <- lang_en;;*);;
+		*);;
+	*);
+
+<- rrel_key_sc_element: ...
+(*
+	<-sc_illustration;;
+	<=nrel_sc_text_translation: ...
+	(*
+		-> rrel_example: "file://images/link.jpg" (* => nrel_format: format_jpg;; *);;
+	*);;
+*);;

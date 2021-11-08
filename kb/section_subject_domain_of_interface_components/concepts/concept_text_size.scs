@@ -1,0 +1,28 @@
+concept_text_size
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[textSize];
+=> nrel_main_idtf:
+	[размер текста]
+	(* <- lang_ru;; *);
+	[text size]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Размер текста - свойство текста, определяющее его величину.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Text size is a property of the text that determines its size.]
+			(* <- lang_en;;*);;
+		*);;
+	*);;

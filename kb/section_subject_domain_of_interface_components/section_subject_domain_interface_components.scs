@@ -1,0 +1,184 @@
+section_subject_domain_of_user_interface_components
+ => nrel_main_idtf:
+ 	[Раздел. Предметная область компонентов пользовательского интерфейса] (* <- lang_ru;; *);
+ 	[Section. Subject domain of user interface components] (* <- lang_en;; *);
+<- sc_node_not_relation;
+<- atomic_section;;
+
+section_subject_domain_of_user_interface_components = [*
+    subject_domain_of_user_interface_components
+        => nrel_main_idtf: 
+            [Предметная область компонентов пользовательского интерфейса] (* <- lang_ru;; *);
+            [Subject domain of user interface components] (* <- lang_en;; *);
+                    
+        <- subject_domain;
+        ->rrel_maximum_studied_object_class:
+            concept_user_interface_component;
+        ->rrel_explored_relation:
+            nrel_properties_set;
+            nrel_json_idtf; 
+            nrel_dp;       
+            nrel_16bit_color;    
+        ->rrel_not_maximum_studied_object_class:
+	    concept_non_atomic_component_of_user_interface;
+	    concept_atomic_component_of_user_interface;
+            concept_button;
+	    concept_radio_button;
+	    concept_check_box;
+            concept_link;
+	    concept_text_component;
+	    concept_text_field;
+	    concept_slider;
+	    concept_image;
+	    concept_progress;
+            concept_label;
+            concept_properties_set;
+            concept_json_idtf;
+            concept_id;
+            concept_width;
+            concept_text;
+            concept_color;
+            concept_text_color;
+            concept_text_size;
+            concept_height;
+            concept_font;
+            concept_coordinate_x;
+            concept_coordinate_y;
+            concept_disabled;
+            concept_href;
+            concept_maxlenght;
+            concept_rows;
+            concept_placeholder;
+            concept_checked;
+            concept_min;
+            concept_max;
+            concept_step;
+            concept_src;
+            concept_alt;;
+*];;
+
+rrel_key_sc_element -> (section_subject_domain_of_user_interface_components -> subject_domain_of_user_interface_components)
+(*
+	=> nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_user_interface_component)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_atomic_component_of_user_interface)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_non_atomic_component_of_user_interface)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_button)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_radio_button)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_check_box)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_link)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_text_component)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_text_field)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_slider)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_image)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_progress)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components -> concept_label)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->nrel_properties_set)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_properties_set)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_json_idtf)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->nrel_json_idtf)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_width)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_id)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_text)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_text_color)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_color)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_text_size)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_height)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_font)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_coordinate_x)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_coordinate_y)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_disabled)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_href)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_maxlenght)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_rows)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_placeholder)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_checked)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_min)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_max)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_step)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_src)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->concept_alt)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->nrel_dp)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->nrel_pt)
+(*
+    <-rrel_key_sc_element;;
+    => nrel_key_sc_element_order: (section_subject_domain_of_user_interface_components ->nrel_16bit_color)
+ 	(*<-rrel_key_sc_element;; *);;
+*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;*);;

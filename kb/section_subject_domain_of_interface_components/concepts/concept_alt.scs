@@ -1,0 +1,29 @@
+concept_alt
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf: [alt];
+=> nrel_main_idtf:
+	[alt]
+	(* <- lang_en;; *);
+	[текстовая подсказка]
+	(* <- lang_ru;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Текстовая подсказка - свойство изображения, которое позволяет получить текстовую информацию о рисунке при отключенной в браузере загрузке изображений.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Alt is an image property that allows you to get text information about the image when the image loading is disabled in the browser.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

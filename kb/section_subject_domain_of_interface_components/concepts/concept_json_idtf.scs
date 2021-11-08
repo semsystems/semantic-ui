@@ -1,0 +1,24 @@
+concept_json_idtf
+<- sc_node_not_relation;
+=> nrel_main_idtf: 
+	[json идентификатор] 
+	(* <- lang_ru;; *);
+	[json identifier] 
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element: ...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:	
+		...
+		(*
+		-> rrel_example: 
+			[Под json идентификатором понимается файл, который использован для обозначения (именования) какой-либо сущности в рамках json.](* <- lang_ru;; *);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A json identifier is a file that is used to name any entity within the json framework.](* <- lang_en;; *);;
+		*);;
+	*);;

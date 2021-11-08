@@ -1,0 +1,29 @@
+concept_color
+<- sc_node_not_relation;
+<- concept_properties_set;
+=> nrel_json_idtf:[color];
+=> nrel_main_idtf:
+	[цвет]
+	(* <- lang_ru;; *);
+	[color]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Цвет - свойство компонента пользовательского интерфейса, определяющее его расцветку.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Color is a property of the user interface component that determines its color.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;
