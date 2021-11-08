@@ -65,9 +65,9 @@ export class ServerBase {
         template.Triple('structure', ScType.EdgeAccessVarPosPerm, 'componentNode');
         const resultAnswer: ScTemplateSearchResult = await this.client.TemplateSearch(template);
 
-        const structAddr: ScAddr = resultAnswer[0].Get('structure');
-        const componentAddr: ScAddr = resultAnswer[0].Get('componentNode');
-        const nodeAddr: ScAddr = resultAnswer[0].Get('node');
+        const structAddr: ScAddr = await resultAnswer[0].Get('structure');
+        const componentAddr: ScAddr = await resultAnswer[0].Get('componentNode');
+        const nodeAddr: ScAddr = await resultAnswer[0].Get('node');
         const templ: ScTemplate = new ScTemplate();
         templ.Triple(structAddr, ScType.EdgeAccessVarPosPerm, [componentAddr, 'component']);
 
@@ -94,7 +94,7 @@ export class ServerBase {
         template.Triple(this.keynodes.kFormatUiJson, ScType.EdgeAccessVarPosPerm, 'link');
 
         const templateResult: ScTemplateSearchResult = await this.client.TemplateSearch(template);
-        const linkAddr: ScAddr = templateResult[0].Get('link');
+        const linkAddr: ScAddr = await templateResult[0].Get('link');
 
         return new Promise((resolve) => {
             resolve(linkAddr);
@@ -129,7 +129,7 @@ export class ServerBase {
             iterator++;
             if (answerMessageNodeConstruction.length > 0) {
                 clearInterval(timerForAnswerConstruction);
-                const answerNode: ScAddr = answerMessageNodeConstruction[0].Get('component');
+                const answerNode: ScAddr = await answerMessageNodeConstruction[0].Get('component');
                 const linkNode: ScAddr = await this.findAnswerLink(answerNode);
                 linkNodeContent = await this.findLinkContent(linkNode);
                 resolveFunction(linkNodeContent);
@@ -178,7 +178,7 @@ export class ServerBase {
 
             const searchResult: ScTemplateResult[] = await this.client.TemplateSearch(templ);
             if (searchResult.length > 0) {
-                const linkAddr: ScAddr = searchResult[0].Get('_link');
+                const linkAddr: ScAddr = await searchResult[0].Get('_link');
                 const content: ScLinkContent[] = await this.client.GetLinkContents([linkAddr]);
 
                 if (content[0].type != ScLinkContentType.String) {
