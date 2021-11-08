@@ -30,8 +30,9 @@ public:
   StringStream json;
 
   ScTemplateSearchResult searchPropertyValue(const ScTemplateItemValue & concrete_component);
+  ScTemplateSearchResult searchProperty(const ScTemplateItemValue & concrete_component);
 
-  void setPropertyValue(ScTemplateSearchResult searchResult, ScMemoryContext * context);
+  void setPropertyValue(ScTemplateSearchResult searchResult, ScTemplateSearchResult result, ScMemoryContext * context);
 
   String getJson(ScTemplateSearchResult searchResult, const ScAddr & param, ScMemoryContext * context);
 
