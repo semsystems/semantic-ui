@@ -1,0 +1,25 @@
+concept_interface_user_action
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[интерфейсное действие пользователя]
+	(* <- lang_ru;; *);
+	[interface user action]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Интерфейсное действие пользователя - минимально значимый фрагмент какой-либо деятельности пользователя, выполняемой через интерфейс.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[An interface user action is a minimally meaningful fragment of some activity of the user, performed through the interface.](* <- lang_en;;*);;
+		*);;
+*);;

@@ -1,0 +1,34 @@
+concept_type_text
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[нажатие на клавишу набора текста]
+	(* <- lang_ru;; *);
+	[type text]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие нажатия на клавишу набора текста] (* <- lang_ru;; *);
+	[typing key pressing action](* <- lang_en;; *);
+	[type text action](* <- lang_en;; *);
+	[keyboard type text](* <- lang_en;; *);
+=> nrel_json_idtf: [onKeyPress];
+
+<= nrel_inclusion: concept_keyboard_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Нажатие на клавишу набора текста представляет собой действие клавиатуры, которое соответствует выполнения нажатия клавиши набора текста в рамках некоторого компонента пользовательского интерфейса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Pressing a typing key is a keyboard action that corresponds to performing a typing key press within some component of the user interface.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

@@ -1,0 +1,25 @@
+action_in_sc_memory_class
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[класс действий в sc-памяти]
+	(* <- lang_ru;; *);
+	[action in sc memory class]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Класс действий в sc-памяти представляет собой класс, элементами которого являются множества действий в sc-памяти.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A class of actions in sc memory is a class whose elements are sets of actions in sc memory.](* <- lang_en;;*);;
+		*);;
+*);;

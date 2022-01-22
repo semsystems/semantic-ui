@@ -1,0 +1,34 @@
+concept_touch_double_click
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[двойное нажатие на сенсор]
+	(* <- lang_ru;; *);
+	[touch double click]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие двойного нажатия на сенсор] (* <- lang_ru;; *);
+	[двойное прикосновение к сенсору] (* <- lang_ru;; *);
+	[touch double clicking action](* <- lang_en;; *);
+
+<= nrel_inclusion: concept_touch_click;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Двойное нажатие на сенсор представляет собой действие нажатия на сенсор, выполненной два раза подряд. 
+			При этом интервал между нажатиями должен не превышать заданное значение для системы.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Double clicking on the sensor is the action of clicking on the sensor performed twice in a row. 
+			In this case, the interval between clicks should not exceed the set value for the system.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

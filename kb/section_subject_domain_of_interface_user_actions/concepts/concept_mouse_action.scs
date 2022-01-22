@@ -1,0 +1,31 @@
+concept_mouse_action
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[действие мыши]
+	(* <- lang_ru;; *);
+	[mouse action]
+	(* <- lang_en;; *);
+=> nrel_idtf:
+	[действие с использованием мыши] (* <- lang_ru;; *);
+	[action using the mouse] (* <- lang_en;; *);
+
+<= nrel_inclusion: concept_interface_user_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Действие мыши - интерфейсное действие пользователя, которое он выполняет посредством использования компьютерной мыши.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A mouse action is an interface user action that is performed by using a computer mouse.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

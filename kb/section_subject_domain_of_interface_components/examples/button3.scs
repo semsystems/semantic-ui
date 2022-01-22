@@ -54,3 +54,9 @@ button3 <- sc_node;;
 @pair38 = (concept_color -> ..node6);;
 @pair39 = (concept_width -> ..node5);;
 @pair40 = (concept_height -> ..node7);;
+
+button3 <- rrel_1 : ...
+    (*
+        -> rrel_2 : concept_mouse_single_click;;
+        => nrel_action_initiated_by_ui : action_to_generate_structure_describing_evolutionary_history_of_ostis_system;;
+    *);;

@@ -1,0 +1,33 @@
+concept_multiple_finger_gesture
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[жест несколькими пальцами]
+	(* <- lang_ru;; *);
+	[multiple-finger gesture]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие выполнения жеста несколькими пальцами] (* <- lang_ru;; *);
+	[сенсорный жест несколькими пальцами] (* <- lang_ru;; *);
+	[multiple-finger gesture action](* <- lang_en;; *);
+	[touch multiple-finger gesture](* <- lang_en;; *);
+
+<= nrel_inclusion: concept_touch_gesture;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Жест несколькими пальцами представляет собой сенсорный жест, выполняемый при помощи движения нескольких пальцев на экране сенсора.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A multiple-finger gesture is a touch gesture performed by moving several fingers on the sensor screen.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

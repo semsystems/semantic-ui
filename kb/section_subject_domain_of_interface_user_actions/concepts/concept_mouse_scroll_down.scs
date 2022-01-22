@@ -1,0 +1,35 @@
+concept_mouse_scroll_down
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[прокрутка мыши вниз]
+	(* <- lang_ru;; *);
+	[mouse scroll down]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие прокрутки мыши вниз] (* <- lang_ru;; *);
+	[прокрутка содержимого мышью вниз] (* <- lang_ru;; *);
+	[скроллинг мыши вниз](* <- lang_ru;; *);
+	[mouse scrolling down](* <- lang_en;; *);
+	[mouse scrolling down action](* <- lang_en;; *);
+=> nrel_json_idtf: [onWheelDown];
+
+<= nrel_inclusion: concept_mouse_scroll;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Прокрутка мыши вниз - прокрутка мыши, при которой графическое содержимое монитора или дисплея перемещается вниз.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Mouse scrolling down - mouse scrolling in which the graphical content of the monitor or display moves down.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

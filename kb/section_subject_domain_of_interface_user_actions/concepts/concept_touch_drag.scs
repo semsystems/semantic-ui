@@ -1,0 +1,31 @@
+concept_touch_drag
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[перетаскивание сенсором]
+	(* <- lang_ru;; *);
+	[touch drag]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие перетаскивания сенсором] (* <- lang_ru;; *);
+	[touch dragging action](* <- lang_en;; *);
+
+<= nrel_inclusion: concept_touch_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Перетаскивание сенсором представляет собой сенсорное действие, которое соответствует перетаскиванию некоторого компонента пользовательского интерфейса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Touch drag is a touch action which corresponds to dragging a user interface component.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

@@ -1,0 +1,32 @@
+concept_write_text
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[написание текста пером]
+	(* <- lang_ru;; *);
+	[write text]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие написания текста пером] (* <- lang_ru;; *);
+	[write text action](* <- lang_en;; *);
+	[pen write text](* <- lang_en;; *);
+
+<= nrel_inclusion: concept_pen_based_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Написание текста пером представляет собой действие при помощи пера, которое соответствует написанию текста при помощи пера на графическом планшете.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Writing text with a pen is an action with a pen, which corresponds to writing text with a pen on a graphics tablet.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

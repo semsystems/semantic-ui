@@ -1,0 +1,32 @@
+concept_touch_action
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[сенсорное действие]
+	(* <- lang_ru;; *);
+	[touch action]
+	(* <- lang_en;; *);
+=> nrel_idtf:
+	[действие с использованием сенсора] (* <- lang_ru;; *);
+	[действие касания] (* <- lang_ru;; *);
+	[action using touch] (* <- lang_en;; *);
+
+<= nrel_inclusion: concept_interface_user_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Действие при помощи сенсора - интерфейсное действие пользователя, осуществляемое при помощи сенсора.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A touch action is an interface user action performed using the sensor.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

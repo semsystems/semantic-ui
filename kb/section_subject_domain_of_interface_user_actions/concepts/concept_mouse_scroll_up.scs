@@ -1,0 +1,35 @@
+concept_mouse_scroll_up
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[прокрутка мыши вверх]
+	(* <- lang_ru;; *);
+	[mouse scroll up]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие прокрутки мыши вверх] (* <- lang_ru;; *);
+	[прокрутка содержимого мышью вверх] (* <- lang_ru;; *);
+	[скроллинг мыши вверх](* <- lang_ru;; *);
+	[mouse scrolling up](* <- lang_en;; *);
+	[mouse scrolling up action](* <- lang_en;; *);
+=> nrel_json_idtf: [onWheelUp];
+
+<= nrel_inclusion: concept_mouse_scroll;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Прокрутка мыши вверх - прокрутка мыши, при которой графическое содержимое монитора или дисплея перемещается вверх.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Mouse scrolling up - mouse scrolling in which the graphical content of the monitor or display moves up.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

@@ -1,0 +1,33 @@
+concept_mouse_click
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[нажатие на кнопку мыши]
+	(* <- lang_ru;; *);
+	[mouse click]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие нажатия на кнопку мыши] (* <- lang_ru;; *);
+	[щелчок кнопки мыши] (* <- lang_ru;; *);
+	[клик кнопки мыши] (* <- lang_ru;; *);
+	[mouse clicking action](* <- lang_en;; *);
+
+<= nrel_inclusion: concept_mouse_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Нажатие на кнопку мыши представляет собой действие мыши, которое соответствует выполнению нажатия мыши в рамках некоторого компонента пользовательского интерфейса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Clicking on a mouse button is a mouse action that corresponds to performing a mouse click within some component of the user interface.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

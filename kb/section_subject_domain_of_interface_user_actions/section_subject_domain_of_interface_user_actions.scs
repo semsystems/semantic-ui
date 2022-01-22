@@ -1,0 +1,187 @@
+section_subject_domain_of_interface_user_actions
+ => nrel_main_idtf:
+ 	[Раздел. Предметная область интерфейсных действий пользователя] (* <- lang_ru;; *);
+ 	[Section. Subject domain of interface user actions] (* <- lang_en;; *);
+<- sc_node_not_relation;
+<- atomic_section;;
+
+section_subject_domain_of_interface_user_actions = [*
+    subject_domain_of_interface_user_actions
+        => nrel_main_idtf: 
+            [Предметная область интерфейсных действий пользователя] (* <- lang_ru;; *);
+            [Subject domain of interface user actions] (* <- lang_en;; *);
+                    
+        <- subject_domain;
+        -> rrel_maximum_studied_object_class:
+            concept_interface_user_action;
+        -> rrel_explored_relation:
+            nrel_action_initiated_by_ui;
+        -> rrel_not_maximum_studied_object_class:
+            concept_interface_user_action_class;
+            concept_mouse_action;
+            concept_mouse_scroll;
+            concept_mouse_scroll_up;
+            concept_mouse_scroll_down;
+            concept_mouse_hower;
+            concept_mouse_unhower;
+            concept_mouse_drag;
+            concept_mouse_drop;
+            concept_mouse_click;
+            concept_mouse_single_click;
+            concept_mouse_double_click;
+            concept_mouse_gesture;
+            concept_speech_action;
+            concept_keyboard_action;
+            concept_press_function_key;
+            concept_type_text;
+            concept_tangible_action;
+            concept_touch_action;
+            concept_touch_click;
+            concept_touch_single_click;
+            concept_touch_double_click;
+            concept_touch_gesture;
+            concept_one_finger_gesture;
+            concept_multiple_finger_gesture;
+            concept_touch_drop;
+            concept_touch_drag;
+            concept_pen_based_action;
+            concept_touch_function_key;
+            concept_draw;
+            concept_write_text;;
+*];;
+
+rrel_key_sc_element -> (section_subject_domain_of_interface_user_actions -> subject_domain_of_interface_user_actions)
+(*
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_interface_user_action)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> nrel_action_initiated_by_ui) 
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_interface_user_action_class)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_action)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_scroll)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_scroll_up)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_scroll_down)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_hower)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_unhower)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_drag)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_drop)
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_click) 
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_single_click)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_double_click)    
+(* 
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_mouse_gesture)    
+(* 
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_speech_action)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_keyboard_action)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_press_function_key)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_type_text)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_tangible_action)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_action)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_click)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_single_click)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_double_click)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_gesture)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_one_finger_gesture)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_multiple_finger_gesture)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_drop)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_drag)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_pen_based_action)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_touch_function_key)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_draw)    
+(*
+    <- rrel_key_sc_element;;
+	=> nrel_key_sc_element_order: (section_subject_domain_of_interface_user_actions -> concept_write_text)       
+(*
+    <- rrel_key_sc_element;; 
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;
+*);;

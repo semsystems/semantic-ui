@@ -1,0 +1,32 @@
+concept_mouse_drop
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[перемещение мышью]
+	(* <- lang_ru;; *);
+	[mouse drop]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие перемещения мышью] (* <- lang_ru;; *);
+	[mouse dropping action](* <- lang_en;; *);
+=> nrel_json_idtf: [onDrop];
+
+<= nrel_inclusion: concept_mouse_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Перемещение мышью представляет собой действие мыши, которое соответствует перемещению определенного компонента пользовательского интерфейса в другое место в компоненте пользовательского интерфейса или внутрь другого компонента.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Mouse drop is a mouse action that corresponds to dropping a certain user interface component to another location in the user interface component or inside another component.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

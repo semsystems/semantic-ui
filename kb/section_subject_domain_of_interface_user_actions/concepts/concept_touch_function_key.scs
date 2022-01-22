@@ -1,0 +1,34 @@
+concept_touch_function_key
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[нажатие на функциональную клавишу пером]
+	(* <- lang_ru;; *);
+	[touch function key]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие нажатия на функциональную клавишу пером] (* <- lang_ru;; *);
+	[прикосновение к функциональной клавише пером] (* <- lang_ru;; *);
+	[touch function key action](* <- lang_en;; *);
+	[pressing a function key with a pen](* <- lang_en;; *);
+	[pen touch function key](* <- lang_en;; *);
+
+<= nrel_inclusion: concept_pen_based_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Нажатие на функциональную клавишу пером представляет собой действие при помощи пера, которое соответствует нажатию функциональной клавиши графического планшета при помощи пера.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A touch function key is an action with a pen, which corresponds to pressing the function key of a graphics tablet with a pen.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;
