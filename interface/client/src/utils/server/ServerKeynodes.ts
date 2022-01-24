@@ -8,11 +8,14 @@ const sQuestionFinished = 'question_finished';
 const sLangEn = 'lang_en';
 const sNrelInclusion = 'nrel_inclusion';
 const sRrel1 = 'rrel_1';
+const sRrel2 = 'rrel_2';
 const sNrelAnswer = 'nrel_answer';
 const sConceptComponent = 'concept_atomic_component_of_user_interface';
 const sActionTranslateToUiJson = 'action_translate_to_ui_json';
 const sFormatUiJson = 'format_ui_json';
 const sButton1 = 'button3';
+const sActionProcessUiAction = 'action_process_ui_action';
+const sNrelJsonIdtf = 'nrel_json_idtf';
 
 // Test
 const sTestUser = 'test_user';
@@ -30,9 +33,12 @@ export class ServerKeynodes {
     private _kLangEn: ScAddr = null;
     private _kNrelInclusion: ScAddr = null;
     private _kRrel1: ScAddr = null;
+    private _kRrel2: ScAddr = null;
     private _kNrelAnswers: ScAddr = null;
     private _kFormatUiJson: ScAddr = null;
     private _kButton1: ScAddr = null;
+    private _kActionProcessUiAction: ScAddr = null;
+    private _kNrelJsonIdtf: ScAddr = null;
     // test
     private _kTestUser: ScAddr = null;
 
@@ -52,12 +58,15 @@ export class ServerKeynodes {
                 { idtf: sLangEn, type: ScType.Unknown },
                 { idtf: sNrelInclusion, type: ScType.Unknown },
                 { idtf: sRrel1, type: ScType.Unknown },
+                { idtf: sRrel2, type: ScType.Unknown },
                 { idtf: sNrelAnswer, type: ScType.Unknown },
                 { idtf: sTestUser, type: ScType.NodeConst },
                 { idtf: sConceptComponent, type: ScType.NodeConst },
                 { idtf: sActionTranslateToUiJson, type: ScType.Unknown },
                 { idtf: sFormatUiJson, type: ScType.Unknown },
                 { idtf: sButton1, type: ScType.Unknown },
+                { idtf: sActionProcessUiAction, type: ScType.Unknown },
+                { idtf: sNrelJsonIdtf, type: ScType.Unknown },
             ];
 
             self._client.ResolveKeynodes(keynodesList).then(function (res: ResolveIdtfMap) {
@@ -68,6 +77,7 @@ export class ServerKeynodes {
                 self._kLangEn = res[sLangEn];
                 self._kNrelInclusion = res[sNrelInclusion];
                 self._kRrel1 = res[sRrel1];
+                self._kRrel2 = res[sRrel2];
                 self._kNrelAnswers = res[sNrelAnswer];
                 self._kTestUser = res[sTestUser];
                 self._kConceptComponent = res[sConceptComponent];
@@ -75,6 +85,8 @@ export class ServerKeynodes {
                 self._kNrelScTextTranslation = res[sNrelScTextTranslation];
                 self._kFormatUiJson = res[sFormatUiJson];
                 self._kButton1 = res[sButton1];
+                self._kActionProcessUiAction = res[sActionProcessUiAction];
+                self._kNrelJsonIdtf = res[sNrelJsonIdtf];
 
                 let resValue = true;
                 for (let i = 0; i < keynodesList.length; ++i) {
@@ -118,6 +130,10 @@ export class ServerKeynodes {
         return this._kRrel1;
     }
 
+    get kRrel2(): ScAddr {
+        return this._kRrel2;
+    }
+
     public get kNrelAnswer(): ScAddr {
         return this._kNrelAnswers;
     }
@@ -144,5 +160,13 @@ export class ServerKeynodes {
 
     public get kButton1(): ScAddr {
         return this._kButton1;
+    }
+
+    public get kActionProcessUiAction(): ScAddr {
+        return this._kActionProcessUiAction;
+    }
+
+    public get kNrelJsonIdtf(): ScAddr {
+        return this._kNrelJsonIdtf;
     }
 }

@@ -32,9 +32,6 @@ export class ServerUtils extends ServerBase {
         const construction: ScConstruction = new ScConstruction();
         construction.CreateNode(ScType.NodeConst, questionNodeAlias);
 
-        const concreteConceptComponentNodeAlias = 'concreteConceptComponentNode';
-        construction.CreateNode(ScType.NodeConst, concreteConceptComponentNodeAlias);
-
         const rrel1EdgeAlias = 'rrel1Edge';
 
         construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kQuestion, questionNodeAlias);
@@ -51,6 +48,31 @@ export class ServerUtils extends ServerBase {
         );
 
         construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kRrel1, rrel1EdgeAlias);
+
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kQuestionInitiated, questionNodeAlias);
+
+        const result: ScAddr[] = await this.client.CreateElements(construction);
+
+        return new Promise<ScAddr[]>(function (resolve) {
+            resolve(result);
+        });
+    }
+
+    public async CallUiActionProcessingAgent(component: ScAddr, uiActionClass: ScAddr): Promise<ScAddr[]> {
+        const questionNodeAlias = 'questionNode';
+        const construction: ScConstruction = new ScConstruction();
+        construction.CreateNode(ScType.NodeConst, questionNodeAlias);
+
+        const rrel1EdgeAlias = 'rrel1Edge';
+        const rrel2EdgeAlias = 'rrel2Edge';
+
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kQuestion, questionNodeAlias);
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kActionProcessUiAction, questionNodeAlias);
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, questionNodeAlias, component, rrel1EdgeAlias);
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, questionNodeAlias, uiActionClass, rrel2EdgeAlias);
+
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kRrel1, rrel1EdgeAlias);
+        construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kRrel2, rrel2EdgeAlias);
 
         construction.CreateEdge(ScType.EdgeAccessConstPosPerm, this.keynodes.kQuestionInitiated, questionNodeAlias);
 

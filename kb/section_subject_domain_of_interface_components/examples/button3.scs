@@ -58,5 +58,5 @@ button3 <- sc_node;;
 button3 <- rrel_1 : ...
     (*
         -> rrel_2 : concept_mouse_single_click;;
-        => nrel_action_initiated_by_ui : action_to_generate_structure_describing_evolutionary_history_of_ostis_system;;
+        => nrel_action_initiated_by_ui : action_of_finding_all_initiated_signs;;
     *);;

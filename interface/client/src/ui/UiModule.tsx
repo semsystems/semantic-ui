@@ -1,17 +1,15 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import { useEffect, useState } from 'react';
 import 'antd/dist/antd.css';
 import * as store from '../store';
 import { connect } from 'react-redux';
 import { ScAddr } from '@ostis/sc-core';
-import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
-import { Link } from 'react-router-dom';
-import { Layout, Select, Button as Btn, Menu, Switch, Radio, Input, Checkbox, Slider, Image, Progress } from 'antd';
-import { GooglePlusOutlined, PrinterOutlined, ArrowsAltOutlined, LinkOutlined } from '@ant-design/icons';
+import { Button as Btn, Checkbox, Image, Input, Layout, Menu, Progress, Radio, Select, Slider, Switch } from 'antd';
+import { ArrowsAltOutlined, GooglePlusOutlined, LinkOutlined, PrinterOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Sider } = Layout;
 const { Item } = Menu;
 const { Group, Button } = Radio;
 
@@ -52,17 +50,25 @@ function mapStateToProps(state: store.Store): KnowledgeBaseProps {
     };
 }
 
-interface UIComponent {
+interface UIComponentProp {
     component: string;
     [propName: string]: string | undefined;
 }
 
+type UIComponent = UIComponentProp & {
+    actions: string[];
+};
+
 interface TInterface {
     model: UIComponent[];
+    componentAdr: ScAddr;
     lib: any;
+    kbProps: KnowledgeBaseProps;
 }
 
-function Interface({ model, lib }: TInterface): JSX.Element | null {
+function Interface({ model, componentAdr, lib, kbProps }: TInterface): JSX.Element | null {
+    const { services } = kbProps;
+
     const iterateProps = (style: unknown): any => {
         const semanticProps = {
             textColor: 'color',
@@ -95,10 +101,37 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
         return renameKeys(semanticProps, style);
     };
 
+    const iterateActions = (actions: string[]): any => {
+        const semanticActionNames = {};
+
+        const handleActionWithoutParams = async (actionName: string) => {
+            const actionAdr = await services.sc.utils.SearchUiClassByJsonIdtf(actionName);
+            const x1 = await services.sc.utils.client.CheckElements([componentAdr, actionAdr]);
+            await services.sc.utils.CallUiActionProcessingAgent(componentAdr, actionAdr);
+            console.log(actionName);
+        };
+
+        const mapEvents = (actionNameMap: unknown, actionArray: string[]) => {
+            const eventMap = {};
+            for (const actionName of actionArray) {
+                let event;
+                switch (actionName) {
+                    default:
+                        event = () => handleActionWithoutParams(actionName);
+                }
+                eventMap[actionNameMap[actionName] || actionName] = event;
+            }
+            return eventMap;
+        };
+
+        return mapEvents(semanticActionNames, actions);
+    };
+
     const iterate = (model: UIComponent[]) => {
         return model.map((e) => {
-            const { component, text, ...prop } = e;
+            const { component, actions, text, ...prop } = e;
             const CSS = iterateProps({ ...prop });
+            const events = iterateActions(actions);
             // if (prop['disabled'] == 'false') {
             //     //                @ts-ignore
             //     prop['disabled'] = false;
@@ -106,7 +139,16 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
             CSS['fontSize'] = CSS['fontSize'] + 'pt';
             // CSS['width'] = CSS['width'] + 'dp';
             // CSS['height'] = CSS['height'] + 'dp';
-            return React.createElement(lib[component], { style: CSS, key: nanoid(), ...prop }, text);
+            return React.createElement(
+                lib[component],
+                {
+                    style: CSS,
+                    key: nanoid(),
+                    ...prop,
+                    ...events,
+                },
+                text,
+            );
         });
     };
 
@@ -117,6 +159,7 @@ function Interface({ model, lib }: TInterface): JSX.Element | null {
 export const UiModuleImpl: React.FC<KnowledgeBaseProps> = (props: KnowledgeBaseProps) => {
     const { services } = props;
     const [jsonLinkContent, setJsonLinkContent] = useState('[]');
+    const [componentAdr, setComponentAdr] = useState(new ScAddr());
     const loadUiJson = async () => {
         const addrs: ScAddr[] = await services.sc.utils.CallUiJsonTranslationAgent();
         const actionNode: ScAddr = addrs[0];
@@ -126,14 +169,27 @@ export const UiModuleImpl: React.FC<KnowledgeBaseProps> = (props: KnowledgeBaseP
         await services.sc.utils.waitFinishedArc(componentNode);
         const json = await services.sc.utils.getUiJsonLinkContent(componentNode);
         console.log(json);
-        return json;
+
+        return { componentNode, json };
     };
     useEffect(() => {
-        loadUiJson().then((json) => {
-            setJsonLinkContent('[' + json + ']');
+        loadUiJson().then((value) => {
+            setJsonLinkContent('[' + value.json + ']');
+            setComponentAdr(value.componentNode);
         });
-    });
+    }, []);
     console.log(JSON.parse(jsonLinkContent));
-    return <div>{jsonLinkContent != '[]' && <Interface model={JSON.parse(jsonLinkContent)} lib={Library} />} </div>;
+    return (
+        <div>
+            {jsonLinkContent != '[]' && (
+                <Interface
+                    model={JSON.parse(jsonLinkContent)}
+                    componentAdr={componentAdr}
+                    lib={Library}
+                    kbProps={props}
+                />
+            )}{' '}
+        </div>
+    );
 };
 export const UiModule = connect(mapStateToProps)(UiModuleImpl);
