@@ -2,6 +2,8 @@ set(SOURCES
         "keynodes/Keynodes.cpp"
         "agents/UiJsonTranslationAgent.cpp"
         "agents/UiJsonTranslator.cpp"
+        "agents/UiActionProcessingAgent.cpp"
+        "utils/SearchUtils.cpp"
         "uiModule.cpp"
         )
 
@@ -9,8 +11,9 @@ set(HEADERS
         "keynodes/Keynodes.hpp"
         "agents/UiJsonTranslationAgent.hpp"
         "agents/UiJsonTranslator.hpp"
-        "uiModule.hpp"
-        )
+        "agents/UiActionProcessingAgent.hpp"
+        "utils/SearchUtils.hpp"
+        "uiModule.hpp")
 
 include_directories(
         ${CMAKE_CURRENT_LIST_DIR}

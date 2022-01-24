@@ -7,6 +7,7 @@
 #include "uiModule.hpp"
 #include "keynodes/Keynodes.hpp"
 #include "agents/UiJsonTranslationAgent.hpp"
+#include "agents/UiActionProcessingAgent.hpp"
 
 using namespace uiModule;
 
@@ -20,6 +21,7 @@ sc_result UiModule::InitializeImpl()
   }
 
   SC_AGENT_REGISTER(UiJsonTranslationAgent)
+  SC_AGENT_REGISTER(UiActionProcessingAgent)
 
   return SC_RESULT_OK;
 }
@@ -27,6 +29,7 @@ sc_result UiModule::InitializeImpl()
 sc_result UiModule::ShutdownImpl()
 {
   SC_AGENT_UNREGISTER(UiJsonTranslationAgent)
+  SC_AGENT_UNREGISTER(UiActionProcessingAgent)
 
   return SC_RESULT_OK;
 }

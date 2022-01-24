@@ -11,6 +11,7 @@
 #include <sc-agents-common/utils/IteratorUtils.hpp>
 #include <sc-agents-common/utils/CommonUtils.hpp>
 #include <sc-agents-common/utils/AgentUtils.hpp>
+#include <sc-agents-common/keynodes/coreKeynodes.hpp>
 #include "keynodes/Keynodes.hpp"
 #include "UiJsonTranslator.hpp"
 
@@ -80,7 +81,7 @@ namespace uiModule {
                 ScType::EdgeDCommonVar >> "_common_arc",
                 uiComponentAddr,
                 ScType::EdgeAccessVarPosPerm >> "_access_arc",
-                Keynodes::nrel_sc_text_translation);
+                scAgentsCommon::CoreKeynodes::nrel_sc_text_translation);
         scTemplate.Triple(
                 "_translation_node",
                 ScType::EdgeAccessVarPosPerm >> "_arc",
@@ -126,7 +127,7 @@ namespace uiModule {
         answerGenerationTemplate.Triple(
                 "_answer",
                 ScType::EdgeAccessVarPosPerm,
-                Keynodes::nrel_sc_text_translation);
+                scAgentsCommon::CoreKeynodes::nrel_sc_text_translation);
         answerGenerationTemplate.Triple(
                 "_answer",
                 ScType::EdgeAccessVarPosPerm,
@@ -180,7 +181,7 @@ namespace uiModule {
                     ScType::EdgeDCommonVar,
                     ScType::NodeVarClass >> "_component",
                     ScType::EdgeAccessVarPosPerm,
-                    Keynodes::nrel_inclusion);
+                    scAgentsCommon::CoreKeynodes::nrel_inclusion);
             templ.Triple(
                     "_component",
                     ScType::EdgeAccessVarPosPerm,
@@ -210,7 +211,7 @@ namespace uiModule {
                     ScType::EdgeDCommonVar,
                     ScType::NodeVarClass >> "_comp_class",
                     ScType::EdgeAccessVarPosPerm,
-                    Keynodes::nrel_inclusion);
+                    scAgentsCommon::CoreKeynodes::nrel_inclusion);
 
             ScTemplateSearchResult searchResult;
             templat.TripleWithRelation(
@@ -218,7 +219,7 @@ namespace uiModule {
                     ScType::EdgeDCommonVar,
                     ScType::NodeVarClass >> "_componen",
                     ScType::EdgeAccessVarPosPerm,
-                    Keynodes::nrel_inclusion);
+                    scAgentsCommon::CoreKeynodes::nrel_inclusion);
 
             templat.Triple(
                     "_componen",

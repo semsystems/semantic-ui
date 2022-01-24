@@ -1,0 +1,9 @@
+lib_component_ui_menu_ui_action_processing
+=> nrel_main_idtf:
+	[Компонент библиотеки. Команда пользовательского интерфейса обработки интерфейсного действия пользователя]
+	(* <- lang_ru;; *);
+	[Library component. User interface command processing of the user interface action]
+	(* <- lang_en;; *);
+
+<- library_of_platform_independent_reusable_components;
+<- library_of_atomic_reusable_components;;

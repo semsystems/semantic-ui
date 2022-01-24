@@ -29,10 +29,12 @@ public:
   ScMemoryContext * ms_context;
   StringStream json;
 
-  ScTemplateSearchResult searchPropertyValue(const ScTemplateItemValue & concrete_component);
-  ScTemplateSearchResult searchProperty(const ScTemplateItemValue & concrete_component);
+  ScTemplateSearchResult searchPropertyNodeValue(const ScTemplateItemValue & concrete_component);
+  ScTemplateSearchResult searchPropertyLinkValue(const ScTemplateItemValue & concrete_component);
+  ScTemplateSearchResult searchActionValue(const ScTemplateItemValue & concrete_component);
 
-  void setPropertyValue(ScTemplateSearchResult searchResult, ScTemplateSearchResult result, ScMemoryContext * context);
+  void setPropertyValue(ScTemplateSearchResult propertyNodeValueSearchResult, ScTemplateSearchResult propertyLinkValueSearchResult, ScMemoryContext * context);
+  void setActionValue(ScTemplateSearchResult actionValueSearchResult, ScMemoryContext * context);
 
   String getJson(ScTemplateSearchResult searchResult, const ScAddr & param, ScMemoryContext * context);
 

@@ -17,4 +17,5 @@ component
 ![](content/request.png)
 
 **Response:**
+
 ![](content/response.png)
