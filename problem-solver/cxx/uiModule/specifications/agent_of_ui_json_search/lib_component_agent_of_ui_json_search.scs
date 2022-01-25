@@ -1,0 +1,8 @@
+action_translate_to_ui_json
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+ 	[действие. транслировать компонент интерфейса в ui-json формат]
+	(* <- lang_ru;;	*);
+=> nrel_main_idtf:
+	[action. to translate the specified ui component to ui-json format]
+	(* <- lang_en;;	*);;

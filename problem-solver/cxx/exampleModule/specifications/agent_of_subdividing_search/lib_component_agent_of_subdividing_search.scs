@@ -1,0 +1,8 @@
+question_find_subdividing
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+ 	[действие. найти разбиений заданной сущности]
+	(* <- lang_ru;;	*);
+=> nrel_main_idtf:
+	[action. to search of subdividing of the specified entity]
+	(* <- lang_en;;	*);;

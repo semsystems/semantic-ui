@@ -58,5 +58,13 @@ button3 <- sc_node;;
 button3 <- rrel_1 : ...
     (*
         -> rrel_2 : concept_mouse_single_click;;
-        => nrel_action_initiated_by_ui : action_of_finding_all_initiated_signs;;
+        => nrel_action_initiated_by_ui : ... 
+            (*
+                <= nrel_inclusion : question_find_subdividing;;
+                => nrel_action_parameters : ...
+                    (*
+                        <- concept_action_parameters_set;;
+                        -> rrel_1 : set;;
+                    *);;
+            *);;
     *);;
