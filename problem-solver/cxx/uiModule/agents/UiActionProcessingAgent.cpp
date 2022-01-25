@@ -13,6 +13,7 @@
 #include "utils/SearchUtils.hpp"
 #include "sc-agents-common/utils/CommonUtils.hpp"
 #include <sc-agents-common/keynodes/coreKeynodes.hpp>
+#include <algorithm>
 
 using namespace std;
 using namespace utils;
@@ -48,8 +49,10 @@ namespace uiModule
             return SC_RESULT_ERROR_INVALID_PARAMS;
         }
 
-        ScAddr internalAction = findInternalAction(componentParam, uiActionClassParam);
-        ScAddr answer = startInternalActionAndGenerateAnswer(internalAction);
+        ScAddr actionSubclass = findInternalActionSubclass(componentParam, uiActionClassParam);
+        ScAddr actionMainClass = findInternalActionMainClass(actionSubclass);
+        ScTemplateSearchResult actionParams = findActionParameters(actionSubclass);
+        ScAddr answer = startInternalAction(actionMainClass, actionParams);
 
         SC_LOG_DEBUG("UiActionProcessingAgent finished")
         utils::AgentUtils::finishAgentWork(ms_context.get(), actionNode, answer, true);
@@ -62,7 +65,7 @@ namespace uiModule
                                            ScType::EdgeAccessConstPosPerm);
     }
 
-    ScAddr UiActionProcessingAgent::findInternalAction(const ScAddr &component, const ScAddr &uiAction)
+    ScAddr UiActionProcessingAgent::findInternalActionSubclass(const ScAddr &component, const ScAddr &uiAction)
     {
         ScTemplate scTemplate;
 
@@ -81,9 +84,26 @@ namespace uiModule
         scTemplate.TripleWithRelation(
                 "_tuple",
                 ScType::EdgeDCommonVar,
-                ScType::NodeVarClass >> "_sys_internal_action_class",
+                ScType::NodeVarClass >> "_sys_internal_action_subclass",
                 ScType::EdgeAccessVarPosPerm,
                 Keynodes::nrel_action_initiated_by_ui);
+
+        ScTemplateSearchResult result;
+
+        ms_context->HelperSearchTemplate(scTemplate, result);
+        return result[0]["_sys_internal_action_subclass"];
+    }
+
+    ScAddr UiActionProcessingAgent::findInternalActionMainClass(const ScAddr &actionSubclass)
+    {
+        ScTemplate scTemplate;
+
+        scTemplate.TripleWithRelation(
+                ScType::NodeVarClass >> "_sys_internal_action_class",
+                ScType::EdgeDCommonVar,
+                actionSubclass,
+                ScType::EdgeAccessVarPosPerm,
+                scAgentsCommon::CoreKeynodes::nrel_inclusion);
 
         ScTemplateSearchResult result;
 
@@ -91,63 +111,100 @@ namespace uiModule
         return result[0]["_sys_internal_action_class"];
     }
 
-    ScAddr UiActionProcessingAgent::startInternalActionAndGenerateAnswer(const ScAddr &internalAction)
+    ScTemplateSearchResult UiActionProcessingAgent::findActionParameters(const ScAddr &actionSubclass)
     {
-        ScTemplate startInternalActionGenTemplate;
-        startInternalActionGenTemplate.Triple(
-                internalAction,
-                ScType::EdgeAccessVarPosPerm >> "_arc1",
-                ScType::NodeVar >> "_question_node"
-        );
-        startInternalActionGenTemplate.Triple(
-                scAgentsCommon::CoreKeynodes::question,
-                ScType::EdgeAccessVarPosPerm >> "_arc2",
-                "_question_node"
-        );
-        startInternalActionGenTemplate.Triple(
-                scAgentsCommon::CoreKeynodes::question_initiated,
-                ScType::EdgeAccessVarPosPerm >> "_arc3",
-                "_question_node"
-        );
-        ScTemplateParams templateParams;
-        ScTemplateGenResult startInternalActionGenTemplateResult;
-        ms_context->HelperGenTemplate(startInternalActionGenTemplate, startInternalActionGenTemplateResult,
-                                      templateParams);
+        ScTemplate scTemplate1;
 
-        SC_LOG_DEBUG("Start internal action " + ms_context->HelperGetSystemIdtf(internalAction))
+        scTemplate1.TripleWithRelation(
+                actionSubclass,
+                ScType::EdgeDCommonVar,
+                ScType::NodeVar >> "_action_parameters_set",
+                ScType::EdgeAccessVarPosPerm,
+                Keynodes::nrel_action_parameters);
+        scTemplate1.Triple(
+                Keynodes::concept_action_parameters_set,
+                ScType::EdgeAccessVarPosPerm,
+                "_action_parameters_set");
 
-        ScTemplate answerGenTemplate;
-        answerGenTemplate.Triple(
-                ScType::NodeVarStruct >> "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                internalAction);
-        answerGenTemplate.Triple(
-                "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                startInternalActionGenTemplateResult["_question_node"]);
-        answerGenTemplate.Triple(
-                "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                startInternalActionGenTemplateResult["_arc1"]);
-        answerGenTemplate.Triple(
-                "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                scAgentsCommon::CoreKeynodes::question);
-        answerGenTemplate.Triple(
-                "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                startInternalActionGenTemplateResult["_arc2"]);
-        answerGenTemplate.Triple(
-                "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                scAgentsCommon::CoreKeynodes::question_initiated);
-        answerGenTemplate.Triple(
-                "_answer",
-                ScType::EdgeAccessVarPosPerm,
-                startInternalActionGenTemplateResult["_arc3"]);
-        ScTemplateGenResult answerGenTemplateResult;
-        ms_context->HelperGenTemplate(answerGenTemplate, answerGenTemplateResult, templateParams);
+        ScTemplateSearchResult result1;
 
-        return answerGenTemplateResult["_answer"];
+        ms_context->HelperSearchTemplate(scTemplate1, result1);
+        ScAddr parameters = result1[0]["_action_parameters_set"];
+
+        ScTemplate scTemplate2;
+
+        scTemplate2.TripleWithRelation(
+                parameters,
+                ScType::EdgeAccessVarPosPerm,
+                ScType::NodeVar >> "_value",
+                ScType::EdgeAccessVarPosPerm,
+                ScType::NodeVarRole >> "_role");
+
+        ScTemplateSearchResult result2;
+
+        ms_context->HelperSearchTemplate(scTemplate2, result2);
+
+        if (!result2.IsEmpty())
+        {
+            return result2;
+        }
+
+        ScTemplate scTemplate3;
+
+        scTemplate3.Triple(
+                parameters,
+                ScType::EdgeAccessVarPosPerm,
+                ScType::NodeVar >> "_value");
+
+        ScTemplateSearchResult result3;
+
+        ms_context->HelperSearchTemplate(scTemplate3, result3);
+
+        return result3;
+    }
+
+    ScAddr UiActionProcessingAgent::startInternalAction(const ScAddr &actionMainClass,
+                                                        const ScTemplateSearchResult &constParameters)
+    {
+        vector<pair<int, ScAddr>> parametersMap;
+        if (!constParameters.IsEmpty())
+        {
+            for (size_t i = 0; i < constParameters.Size(); i++)
+            {
+                ScAddr value = constParameters[i]["_value"];
+
+                if (constParameters[i].Has("_role"))
+                {
+                    ScAddr role = constParameters[i]["_role"];
+                    string roleIdtf = (ms_context->HelperGetSystemIdtf(role));
+                    int roleNumber = stoi(roleIdtf.substr(roleIdtf.find('_') + 1));
+                    parametersMap.emplace_back(roleNumber, value);
+                }
+                else
+                {
+                    parametersMap.emplace_back(1, value);
+                }
+            }
+
+            sort(parametersMap.begin(), parametersMap.end(), cmp);
+        }
+
+        vector<ScAddr> parametersVec;
+        parametersVec.reserve(parametersMap.size());
+        for (auto elem : parametersMap)
+        {
+            parametersVec.push_back(elem.second);
+        }
+
+        ScAddr question = AgentUtils::initAgent(ms_context.get(),actionMainClass,parametersVec);
+
+        SC_LOG_INFO("Start internal action " + ms_context->HelperGetSystemIdtf(actionMainClass))
+
+        return question;
+    }
+
+    bool UiActionProcessingAgent::cmp(pair<int, ScAddr> &a, pair<int, ScAddr> &b)
+    {
+        return a.first < b.first;
     }
 }

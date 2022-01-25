@@ -20,8 +20,14 @@ class UiActionProcessingAgent : public ScAgent
     SC_GENERATED_BODY()
 
     bool checkActionClass(ScAddr const &actionAddr);
-    ScAddr findInternalAction(const ScAddr &component, const ScAddr &uiAction);
-    ScAddr startInternalActionAndGenerateAnswer(const ScAddr &internalAction);
+    ScAddr findInternalActionSubclass(const ScAddr &component, const ScAddr &uiAction);
+    ScAddr findInternalActionMainClass(const ScAddr &actionSubclass);
+    ScTemplateSearchResult findActionParameters(const ScAddr &actionSubclass);
+    ScAddr startInternalAction(const ScAddr &actionMainClass,
+                               const ScTemplateSearchResult &constParameters);
+
+private:
+    static bool cmp(std::pair<int, ScAddr> &a, std::pair<int, ScAddr> &b);
 };
 
 } // namespace uiModule

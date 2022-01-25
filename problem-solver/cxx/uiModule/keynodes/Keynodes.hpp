@@ -59,6 +59,12 @@ public:
 
   SC_PROPERTY(Keynode("action_process_ui_action"), ForceCreate)
   static ScAddr action_process_ui_action;
+
+  SC_PROPERTY(Keynode("nrel_action_parameters"), ForceCreate)
+  static ScAddr nrel_action_parameters;
+
+  SC_PROPERTY(Keynode("concept_action_parameters_set"), ForceCreate)
+  static ScAddr concept_action_parameters_set;
 };
 
 } // namespace uiModule

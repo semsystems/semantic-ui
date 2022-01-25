@@ -22,5 +22,7 @@ ScAddr Keynodes::nrel_action_initiated_by_ui;
 ScAddr Keynodes::concept_interface_user_action;
 ScAddr Keynodes::action_in_sc_memory;
 ScAddr Keynodes::action_process_ui_action;
+ScAddr Keynodes::nrel_action_parameters;
+ScAddr Keynodes::concept_action_parameters_set;
 
 }

@@ -106,7 +106,6 @@ function Interface({ model, componentAdr, lib, kbProps }: TInterface): JSX.Eleme
 
         const handleActionWithoutParams = async (actionName: string) => {
             const actionAdr = await services.sc.utils.SearchUiClassByJsonIdtf(actionName);
-            const x1 = await services.sc.utils.client.CheckElements([componentAdr, actionAdr]);
             await services.sc.utils.CallUiActionProcessingAgent(componentAdr, actionAdr);
             console.log(actionName);
         };
