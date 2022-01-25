@@ -7,5 +7,6 @@ ui_menu_na_example_commands
 <= nrel_ui_commands_decomposition:
 	{
 		ui_menu_subdividing_search;
-		ui_menu_translate_to_ui_json
+		ui_menu_translate_to_ui_json;
+		ui_menu_ui_action_processing
 	};;
