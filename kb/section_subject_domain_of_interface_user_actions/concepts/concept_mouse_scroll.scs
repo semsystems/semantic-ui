@@ -12,7 +12,7 @@ concept_mouse_scroll
 	[mouse scrolling](* <- lang_en;; *);
 	[mouse scrolling action](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_mouse_action;
+<= nrel_strict_inclusion: concept_mouse_action;
 <- rrel_key_sc_element:
 	...
 	(*

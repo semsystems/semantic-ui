@@ -12,7 +12,7 @@ concept_mouse_single_click
 	[mouse single clicking action](* <- lang_en;; *);
 => nrel_json_idtf: [onClick];
 
-<= nrel_inclusion: concept_mouse_click;
+<= nrel_strict_inclusion: concept_mouse_click;
 <- rrel_key_sc_element:
 	...
 	(*

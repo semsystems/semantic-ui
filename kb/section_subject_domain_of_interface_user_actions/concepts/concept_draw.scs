@@ -11,7 +11,7 @@ concept_draw
 	[pen draw](* <- lang_en;; *);
 => nrel_json_idtf: [onPointerMove];
 
-<= nrel_inclusion: concept_pen_based_action;
+<= nrel_strict_inclusion: concept_pen_based_action;
 <- rrel_key_sc_element:
 	...
 	(*

@@ -12,7 +12,7 @@ concept_type_text
 	[keyboard type text](* <- lang_en;; *);
 => nrel_json_idtf: [onKeyPress];
 
-<= nrel_inclusion: concept_keyboard_action;
+<= nrel_strict_inclusion: concept_keyboard_action;
 <- rrel_key_sc_element:
 	...
 	(*

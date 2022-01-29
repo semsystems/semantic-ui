@@ -9,7 +9,7 @@ concept_touch_gesture
 	[действие выполнения сенсорного жеста] (* <- lang_ru;; *);
 	[touch gesture action](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_touch_action;
+<= nrel_strict_inclusion: concept_touch_action;
 <- rrel_key_sc_element:
 	...
 	(*

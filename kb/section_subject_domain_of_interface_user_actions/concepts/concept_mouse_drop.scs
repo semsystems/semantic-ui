@@ -10,7 +10,7 @@ concept_mouse_drop
 	[mouse dropping action](* <- lang_en;; *);
 => nrel_json_idtf: [onDrop];
 
-<= nrel_inclusion: concept_mouse_action;
+<= nrel_strict_inclusion: concept_mouse_action;
 <- rrel_key_sc_element:
 	...
 	(*

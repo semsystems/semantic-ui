@@ -11,7 +11,7 @@ concept_one_finger_gesture
 	[one-finger gesture action](* <- lang_en;; *);
 	[touch one-finger gesture](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_touch_gesture;
+<= nrel_strict_inclusion: concept_touch_gesture;
 <- rrel_key_sc_element:
 	...
 	(*

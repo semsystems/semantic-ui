@@ -9,7 +9,7 @@ concept_mouse_action
 	[действие с использованием мыши] (* <- lang_ru;; *);
 	[action using the mouse] (* <- lang_en;; *);
 
-<= nrel_inclusion: concept_interface_user_action;
+<= nrel_strict_inclusion: concept_interface_user_action;
 <- rrel_key_sc_element:
 	...
 	(*

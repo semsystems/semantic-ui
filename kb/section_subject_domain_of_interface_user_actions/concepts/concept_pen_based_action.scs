@@ -9,7 +9,7 @@ concept_pen_based_action
 	[действие с использованием пера] (* <- lang_ru;; *);
 	[action using pen] (* <- lang_en;; *);
 
-<= nrel_inclusion: concept_interface_user_action;
+<= nrel_strict_inclusion: concept_interface_user_action;
 <- rrel_key_sc_element:
 	...
 	(*

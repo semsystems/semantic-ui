@@ -11,7 +11,7 @@ concept_multiple_finger_gesture
 	[multiple-finger gesture action](* <- lang_en;; *);
 	[touch multiple-finger gesture](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_touch_gesture;
+<= nrel_strict_inclusion: concept_touch_gesture;
 <- rrel_key_sc_element:
 	...
 	(*

@@ -13,7 +13,7 @@ concept_mouse_scroll_up
 	[mouse scrolling up action](* <- lang_en;; *);
 => nrel_json_idtf: [onWheelUp];
 
-<= nrel_inclusion: concept_mouse_scroll;
+<= nrel_strict_inclusion: concept_mouse_scroll;
 <- rrel_key_sc_element:
 	...
 	(*

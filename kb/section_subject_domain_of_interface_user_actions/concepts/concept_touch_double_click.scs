@@ -10,7 +10,7 @@ concept_touch_double_click
 	[двойное прикосновение к сенсору] (* <- lang_ru;; *);
 	[touch double clicking action](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_touch_click;
+<= nrel_strict_inclusion: concept_touch_click;
 <- rrel_key_sc_element:
 	...
 	(*

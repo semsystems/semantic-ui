@@ -9,7 +9,7 @@ concept_touch_drag
 	[действие перетаскивания сенсором] (* <- lang_ru;; *);
 	[touch dragging action](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_touch_action;
+<= nrel_strict_inclusion: concept_touch_action;
 <- rrel_key_sc_element:
 	...
 	(*

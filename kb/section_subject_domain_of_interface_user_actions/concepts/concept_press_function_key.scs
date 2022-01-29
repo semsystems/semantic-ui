@@ -10,7 +10,7 @@ concept_press_function_key
 	[function key pressing action](* <- lang_en;; *);
 	[keyboard press function key](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_keyboard_action;
+<= nrel_strict_inclusion: concept_keyboard_action;
 <- rrel_key_sc_element:
 	...
 	(*

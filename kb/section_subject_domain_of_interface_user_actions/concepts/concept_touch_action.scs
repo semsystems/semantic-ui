@@ -10,7 +10,7 @@ concept_touch_action
 	[действие касания] (* <- lang_ru;; *);
 	[action using touch] (* <- lang_en;; *);
 
-<= nrel_inclusion: concept_interface_user_action;
+<= nrel_strict_inclusion: concept_interface_user_action;
 <- rrel_key_sc_element:
 	...
 	(*

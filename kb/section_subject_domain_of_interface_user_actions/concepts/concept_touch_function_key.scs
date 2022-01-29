@@ -12,7 +12,7 @@ concept_touch_function_key
 	[pressing a function key with a pen](* <- lang_en;; *);
 	[pen touch function key](* <- lang_en;; *);
 
-<= nrel_inclusion: concept_pen_based_action;
+<= nrel_strict_inclusion: concept_pen_based_action;
 <- rrel_key_sc_element:
 	...
 	(*

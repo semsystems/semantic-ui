@@ -11,7 +11,7 @@ concept_mouse_unhower
 	[mouse unhower action](* <- lang_en;; *);
 => nrel_json_idtf: [onMouseLeave];
 
-<= nrel_inclusion: concept_mouse_action;
+<= nrel_strict_inclusion: concept_mouse_action;
 <- rrel_key_sc_element:
 	...
 	(*
