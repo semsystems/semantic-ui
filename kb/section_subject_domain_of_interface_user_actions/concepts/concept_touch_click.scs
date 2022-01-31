@@ -1,0 +1,32 @@
+concept_touch_click
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[нажатие на сенсор]
+	(* <- lang_ru;; *);
+	[touch click]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие нажатия на сенсор] (* <- lang_ru;; *);
+	[прикосновение к сенсору] (* <- lang_ru;; *);
+	[touch clicking action](* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_touch_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Нажатие на сенсор представляет собой сенсорное действие, которое соответствует выполнению нажатия сенсора в рамках некоторого компонента пользовательского интерфейса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Clicking on a sensor is a touch action that corresponds to the execution of a sensor click within some component of the user interface.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

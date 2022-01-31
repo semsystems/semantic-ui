@@ -197,4 +197,40 @@ export class ServerBase {
             resolve(result);
         });
     }
+
+    public async SearchUiClassByJsonIdtf(jsonIdtf: string): Promise<ScAddr> {
+        /*
+        const createLinkConstruction: ScConstruction = new ScConstruction();
+        createLinkConstruction.CreateLink(ScType.Link, new ScLinkContent(jsonIdtf, ScLinkContentType.String));
+        const createLinkResult: ScAddr[] = await this.client.CreateElements(createLinkConstruction);
+
+         */
+
+        const template: ScTemplate = new ScTemplate();
+
+        template.TripleWithRelation(
+            [ScType.NodeVar, '_uiClass'],
+            ScType.EdgeDCommonVar,
+            [ScType.LinkVar, '_link'],
+            ScType.EdgeAccessVarPosPerm,
+            this.keynodes.kNrelJsonIdtf,
+        );
+        const allUiClassesWithJsonIdtfResult: ScTemplateSearchResult = await this.client.TemplateSearch(template);
+        for (const uiClassResult of allUiClassesWithJsonIdtfResult) {
+            const linkAddr: ScAddr = await uiClassResult.Get('_link');
+            const content: ScLinkContent[] = await this.client.GetLinkContents([linkAddr]);
+
+            if (content[0].type != ScLinkContentType.String) {
+                throw 'Json identifier should be a string';
+            }
+
+            const uiClassJsonIdtf: string = content[0].data as string;
+            if (jsonIdtf === uiClassJsonIdtf) {
+                const uiClass: ScAddr = await uiClassResult.Get('_uiClass');
+                return new Promise<ScAddr>(function (resolve) {
+                    resolve(uiClass);
+                });
+            }
+        }
+    }
 }

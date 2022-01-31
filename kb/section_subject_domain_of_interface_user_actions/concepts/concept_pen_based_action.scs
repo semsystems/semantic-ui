@@ -1,0 +1,31 @@
+concept_pen_based_action
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[действие пера]
+	(* <- lang_ru;; *);
+	[pen-based action]
+	(* <- lang_en;; *);
+=> nrel_idtf:
+	[действие с использованием пера] (* <- lang_ru;; *);
+	[action using pen] (* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_interface_user_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Действие при помощи пера - интерфейсное действие пользователя, осуществляемое при помощи пера на графическом планшете.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A pen-based action is an interface user action performed using a pen on a graphics tablet.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

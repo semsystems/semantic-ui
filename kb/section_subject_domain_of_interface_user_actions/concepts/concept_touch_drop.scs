@@ -1,0 +1,31 @@
+concept_touch_drop
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[перемещение сенсором]
+	(* <- lang_ru;; *);
+	[touch drop]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие перемещения сенсором] (* <- lang_ru;; *);
+	[touch dropping action](* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_touch_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Перемещение сенсором представляет собой сенсорное действие, которое соответствует перемещению определенного компонента пользовательского интерфейса в другое место в компоненте пользовательского интерфейса или внутрь другого компонента.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Touch drop is a touch action that corresponds to dropping a certain user interface component to another location in the user interface component or inside another component.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

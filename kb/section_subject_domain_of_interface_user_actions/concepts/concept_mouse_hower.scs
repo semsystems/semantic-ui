@@ -1,0 +1,33 @@
+concept_mouse_hower
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[наведение мыши]
+	(* <- lang_ru;; *);
+	[mouse hower]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие наведения мыши] (* <- lang_ru;; *);
+	[mouseover](* <- lang_en;; *);
+	[mouse hower action](* <- lang_en;; *);
+=> nrel_json_idtf: [onMouseEnter];
+
+<= nrel_strict_inclusion: concept_mouse_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Наведение курсора мыши - это действие мыши, которое соответствует появлению курсора мыши в границах некоторого компонента пользовательского интерфейса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Mouse hover is a mouse action, which corresponds to the appearance of the mouse cursor within the user interface component.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

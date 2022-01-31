@@ -1,0 +1,33 @@
+concept_one_finger_gesture
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[жест одним пальцем]
+	(* <- lang_ru;; *);
+	[one-finger gesture]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие выполнения жеста одним пальцем] (* <- lang_ru;; *);
+	[сенсорный жест одним пальцем] (* <- lang_ru;; *);
+	[one-finger gesture action](* <- lang_en;; *);
+	[touch one-finger gesture](* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_touch_gesture;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Жест одним пальцем представляет собой сенсорный жест, выполняемый при помощи движения одного пальца на экране сенсора.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A one-finger gesture is a touch gesture performed by moving one finger on the sensor screen.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

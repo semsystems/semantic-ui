@@ -1,0 +1,33 @@
+concept_mouse_unhower
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[снятие наведения мыши]
+	(* <- lang_ru;; *);
+	[mouse unhower]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие снятия наведения мыши] (* <- lang_ru;; *);
+	[mouseout](* <- lang_en;; *);
+	[mouse unhower action](* <- lang_en;; *);
+=> nrel_json_idtf: [onMouseLeave];
+
+<= nrel_strict_inclusion: concept_mouse_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Снятие наведения мыши - это действие мыши, которое соответствует выводу курсора мыши за рамки некоторого компонента пользовательского интерфейса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[Mouse unhover is a mouse action, which corresponds to the exit of the mouse cursor outside the framework of the user interface component.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

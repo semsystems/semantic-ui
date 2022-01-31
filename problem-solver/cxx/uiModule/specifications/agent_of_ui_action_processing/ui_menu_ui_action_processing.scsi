@@ -1,0 +1,29 @@
+ui_menu_ui_action_processing <- ui_user_command_class_atom; ui_user_command_class_view_kb; ui_two_argument_command_class;;
+
+ui_menu_ui_action_processing
+=> nrel_main_idtf: 
+	[Выполнить обработку интерфейсного действия пользователя]
+	(* <- lang_ru;; *);
+=> nrel_idtf: 
+	[Выполнить обработку интерфейсного действия пользователя, которое было совершено над заданным компонентом интерфейса]
+	(* <- lang_ru;; *);;
+
+ui_menu_ui_action_processing
+=> nrel_main_idtf: 
+	[Perform processing of the user interface action]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[Perform processing of the user interface action that was performed on the specified interface component]
+	(* <- lang_en;; *);;
+
+ui_menu_ui_action_processing => ui_nrel_command_template:
+	[*
+		action_process_ui_action _-> ._action_process_ui_action_instance
+			(*
+				_-> ui_arg_1;;
+			*);;
+		._action_process_ui_action_instance _<- question;;
+	*];;
+
+ui_menu_ui_action_processing => ui_nrel_command_lang_template: [Выполнить обработку интерфейсного действия пользователя $ui_arg_2, которое было совершено над компонентом интерфейса $ui_arg_1] (* <- lang_ru;; *);;
+ui_menu_ui_action_processing => ui_nrel_command_lang_template: [Perform processing of the user interface action $ui_arg_2, that was performed on the interface component $ui_arg_1] (* <- lang_en;; *);;

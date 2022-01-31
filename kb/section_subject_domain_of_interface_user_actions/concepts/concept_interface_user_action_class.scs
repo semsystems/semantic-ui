@@ -1,0 +1,25 @@
+concept_interface_user_action_class
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[класс интерфейсных действий пользователя]
+	(* <- lang_ru;; *);
+	[interface user action class]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Класс интерфейсных действий пользователя представляет собой класс, элементами которого являются множества интерфейсных действий пользователя.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[The user interface actions class is a class whose elements are sets of user interface actions.](* <- lang_en;;*);;
+		*);;
+*);;

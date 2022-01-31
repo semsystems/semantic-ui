@@ -1,0 +1,31 @@
+concept_speech_action
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[голосовое действие]
+	(* <- lang_ru;; *);
+	[speech action]
+	(* <- lang_en;; *);
+=> nrel_idtf:
+	[действие с использованием голоса] (* <- lang_ru;; *);
+	[action using speech] (* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_interface_user_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Голосовое действие - интерфейсное действие пользователя, осуществляемое при помощи голоса.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A speech action is an interface user action performed using speech.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

@@ -1,0 +1,31 @@
+concept_touch_gesture
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[сенсорный жест]
+	(* <- lang_ru;; *);
+	[touch gesture]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие выполнения сенсорного жеста] (* <- lang_ru;; *);
+	[touch gesture action](* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_touch_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Сенсорный жест представляет собой сенсорное действие, соответствующее некоторому жесту, выполняемому при помощи движения пальцев на экране сенсора.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A touch gesture is a touch action corresponding to a certain gesture performed using the movement of fingers on the sensor screen.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

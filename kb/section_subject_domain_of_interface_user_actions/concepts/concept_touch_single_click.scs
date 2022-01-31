@@ -1,0 +1,32 @@
+concept_touch_single_click
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[одиночное нажатие на сенсор]
+	(* <- lang_ru;; *);
+	[touch single click]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие одиночного нажатия на сенсор] (* <- lang_ru;; *);
+	[одиночное прикосновение к сенсору] (* <- lang_ru;; *);
+	[touch single clicking action](* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_touch_click;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Одиночное нажатие на сенсор представляет собой действие нажатия на сенсор, выполненной единожды.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A single click on the sensor is the action of clicking on the sensor once.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;

@@ -10,16 +10,19 @@ namespace uiModule
 {
 
 ScAddr Keynodes::action_translate_to_ui_json;
-ScAddr Keynodes::question_finished_successfully;
 ScAddr Keynodes::keynode_nrel_json_idtf;
 ScAddr Keynodes::format_ui_json;
-ScAddr Keynodes::concept_button;
 ScAddr Keynodes::concept_component;
 ScAddr Keynodes::concept_component_class;
-ScAddr Keynodes::nrel_inclusion;
 ScAddr Keynodes::concept_atomic_component;
 ScAddr Keynodes::concept_non_atomic_component;
 ScAddr Keynodes::nrel_subdividing;
-ScAddr Keynodes::nrel_sc_text_translation;
 ScAddr Keynodes::concept_properties_set;
+ScAddr Keynodes::nrel_action_initiated_by_ui;
+ScAddr Keynodes::concept_interface_user_action;
+ScAddr Keynodes::action_in_sc_memory;
+ScAddr Keynodes::action_process_ui_action;
+ScAddr Keynodes::nrel_action_parameters;
+ScAddr Keynodes::concept_action_parameters_set;
+
 }

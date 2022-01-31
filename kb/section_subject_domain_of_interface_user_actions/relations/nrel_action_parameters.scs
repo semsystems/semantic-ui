@@ -1,0 +1,39 @@
+nrel_action_parameters
+<- sc_node_norole_relation;
+<- relation;
+<- binary_relation;
+<- oriented_relation;
+<- antireflexive_relation;
+<- asymmetric_relation;
+<- antitransitive_relation;
+=> nrel_main_idtf: 
+	[параметры действия* ]
+	(* <- lang_ru;; *);
+	[action parameters* ]
+	(* <- lang_en;; *);
+=> nrel_idtf: 
+	[множество параметров действия* ]
+	(* <- lang_ru;; *);
+	[action parameters set* ]
+	(* <- lang_en;; *);
+
+=> nrel_first_domain: action_in_sc_memory_class;
+
+=> nrel_second_domain: concept_action_parameters_set;
+
+<- rrel_key_sc_element: ...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+		[Параметры действия* - это бинарное отношение, связывающее с одной стороны элемент класса действий в sc-памяти, а с другой - элемент множества параметров действия.](* <- lang_ru;; *);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+		[An action parameters set* is a binary relation linking, on the one hand, an element of the action class in sc memory, and on the other, an element of the set of action parameters.](* <- lang_en;; *);;
+		*);;
+	*);;

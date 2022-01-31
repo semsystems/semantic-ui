@@ -44,6 +44,9 @@ include_problem_solver()
 	./build_problem_solver.sh
 	cat "${PLATFORM_PATH}"/sc-machine/bin/config.ini >> "${PLATFORM_PATH}"/config/sc-web.ini
 	cd "${PLATFORM_PATH}"
+
+	echo "../problem-solver/cxx/exampleModule/specifications" >> ./repo.path
+	echo "../problem-solver/cxx/uiModule/specifications" >> ./repo.path
 }
 
 include_interface()

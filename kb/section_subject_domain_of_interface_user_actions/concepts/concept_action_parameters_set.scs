@@ -1,0 +1,25 @@
+concept_action_parameters_set
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[множество параметров действия]
+	(* <- lang_ru;; *);
+	[action parameters set]
+	(* <- lang_en;; *);
+
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Множество параметров действия - множество, состоящее из параметров экземпляра внутреннего действия системы.](* <- lang_ru;;*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A set of action parameters is a set consisting of parameters of an instance of an internal action of the system.](* <- lang_en;;*);;
+		*);;
+	*);;

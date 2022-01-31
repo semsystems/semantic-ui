@@ -1,0 +1,32 @@
+concept_mouse_gesture
+<- sc_node_not_relation;
+=> nrel_main_idtf:
+	[жест мыши]
+	(* <- lang_ru;; *);
+	[mouse gesture]
+	(* <- lang_en;; *); 
+=> nrel_idtf:
+	[действие жеста мыши] (* <- lang_ru;; *);
+	[жест мышью] (* <- lang_ru;; *);
+	[mouse gesture action](* <- lang_en;; *);
+
+<= nrel_strict_inclusion: concept_mouse_action;
+<- rrel_key_sc_element:
+	...
+	(*
+	<- explanation;;
+	<= nrel_sc_text_translation:
+		...
+		(*
+		-> rrel_example:
+			[Жест мышью представляет собой действие мыши, соответствующее выполнению некоторого жеста, выполняемого при помощи движения мыши.]
+			(* <- lang_ru;;	*);;
+		*);
+		
+		...
+		(*
+		-> rrel_example:
+			[A mouse gesture is a mouse action corresponding to the execution of some gesture performed with the mouse movement.]
+			(* <- lang_en;;	*);;
+		*);;
+	*);;
